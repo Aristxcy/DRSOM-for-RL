@@ -71,7 +71,6 @@ class GaussianMLPPolicy(torch.nn.Module):
 
         self._name = name 
         self._env_spec = env_spec
-        self._name = name
 
         self._obs_dim = env_spec.observation_space.flat_dim
         self._action_dim = env_spec.action_space.flat_dim

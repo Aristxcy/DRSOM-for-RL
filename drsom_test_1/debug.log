@@ -1,0 +1,1502 @@
+2022-08-28 12:46:04 | [trpo_pendulum] Logging to drsom_test_1
+2022-08-28 12:46:04 | [trpo_pendulum] Obtaining samples...
+2022-08-28 12:46:05 | [trpo_pendulum] epoch #0 | Saving snapshot...
+2022-08-28 12:46:05 | [trpo_pendulum] epoch #0 | Saved
+2022-08-28 12:46:05 | [trpo_pendulum] epoch #0 | Time 1.00 s
+2022-08-28 12:46:05 | [trpo_pendulum] epoch #0 | EpochTime 1.00 s
+----------------------------------  ----------
+Evaluation/AverageDiscountedReturn   -10.3457
+Evaluation/AverageReturn             -96.0864
+Evaluation/Iteration                   0
+Evaluation/MaxReturn                 -92.4369
+Evaluation/MinReturn                 -99.7358
+Evaluation/NumEpisodes                 2
+Evaluation/StdReturn                   3.64945
+Evaluation/TerminationRate             0
+TotalEnvSteps                       1998
+----------------------------------  ----------
+2022-08-28 12:46:06 | [trpo_pendulum] epoch #1 | Saving snapshot...
+2022-08-28 12:46:06 | [trpo_pendulum] epoch #1 | Saved
+2022-08-28 12:46:06 | [trpo_pendulum] epoch #1 | Time 2.11 s
+2022-08-28 12:46:06 | [trpo_pendulum] epoch #1 | EpochTime 1.11 s
+----------------------------------  ----------
+Evaluation/AverageDiscountedReturn    -9.82797
+Evaluation/AverageReturn            -101.305
+Evaluation/Iteration                   1
+Evaluation/MaxReturn                 -95.3075
+Evaluation/MinReturn                -107.302
+Evaluation/NumEpisodes                 2
+Evaluation/StdReturn                   5.99711
+Evaluation/TerminationRate             0
+TotalEnvSteps                       3996
+----------------------------------  ----------
+2022-08-28 12:46:07 | [trpo_pendulum] epoch #2 | Saving snapshot...
+2022-08-28 12:46:07 | [trpo_pendulum] epoch #2 | Saved
+2022-08-28 12:46:07 | [trpo_pendulum] epoch #2 | Time 3.13 s
+2022-08-28 12:46:07 | [trpo_pendulum] epoch #2 | EpochTime 1.01 s
+----------------------------------  ----------
+Evaluation/AverageDiscountedReturn    -8.1387
+Evaluation/AverageReturn             -83.7737
+Evaluation/Iteration                   2
+Evaluation/MaxReturn                 -81.4375
+Evaluation/MinReturn                 -86.1099
+Evaluation/NumEpisodes                 2
+Evaluation/StdReturn                   2.33615
+Evaluation/TerminationRate             0
+TotalEnvSteps                       5994
+----------------------------------  ----------
+2022-08-28 12:46:08 | [trpo_pendulum] epoch #3 | Saving snapshot...
+2022-08-28 12:46:08 | [trpo_pendulum] epoch #3 | Saved
+2022-08-28 12:46:08 | [trpo_pendulum] epoch #3 | Time 4.06 s
+2022-08-28 12:46:08 | [trpo_pendulum] epoch #3 | EpochTime 0.93 s
+----------------------------------  -----------
+Evaluation/AverageDiscountedReturn    -6.5966
+Evaluation/AverageReturn             -72.2335
+Evaluation/Iteration                   3
+Evaluation/MaxReturn                 -71.9408
+Evaluation/MinReturn                 -72.5262
+Evaluation/NumEpisodes                 2
+Evaluation/StdReturn                   0.292732
+Evaluation/TerminationRate             0
+TotalEnvSteps                       7992
+----------------------------------  -----------
+2022-08-28 12:46:09 | [trpo_pendulum] epoch #4 | Saving snapshot...
+2022-08-28 12:46:09 | [trpo_pendulum] epoch #4 | Saved
+2022-08-28 12:46:09 | [trpo_pendulum] epoch #4 | Time 5.05 s
+2022-08-28 12:46:09 | [trpo_pendulum] epoch #4 | EpochTime 0.99 s
+----------------------------------  ----------
+Evaluation/AverageDiscountedReturn    -6.09108
+Evaluation/AverageReturn             -59.9013
+Evaluation/Iteration                   4
+Evaluation/MaxReturn                 -55.2179
+Evaluation/MinReturn                 -64.5847
+Evaluation/NumEpisodes                 2
+Evaluation/StdReturn                   4.68341
+Evaluation/TerminationRate             0
+TotalEnvSteps                       9990
+----------------------------------  ----------
+2022-08-28 12:46:10 | [trpo_pendulum] epoch #5 | Saving snapshot...
+2022-08-28 12:46:10 | [trpo_pendulum] epoch #5 | Saved
+2022-08-28 12:46:10 | [trpo_pendulum] epoch #5 | Time 5.99 s
+2022-08-28 12:46:10 | [trpo_pendulum] epoch #5 | EpochTime 0.94 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -5.16031
+Evaluation/AverageReturn              -49.7753
+Evaluation/Iteration                    5
+Evaluation/MaxReturn                  -48.8631
+Evaluation/MinReturn                  -50.6874
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.912117
+Evaluation/TerminationRate              0
+TotalEnvSteps                       11988
+----------------------------------  ------------
+2022-08-28 12:46:11 | [trpo_pendulum] epoch #6 | Saving snapshot...
+2022-08-28 12:46:11 | [trpo_pendulum] epoch #6 | Saved
+2022-08-28 12:46:11 | [trpo_pendulum] epoch #6 | Time 6.93 s
+2022-08-28 12:46:11 | [trpo_pendulum] epoch #6 | EpochTime 0.95 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -4.84244
+Evaluation/AverageReturn              -42.3854
+Evaluation/Iteration                    6
+Evaluation/MaxReturn                  -41.6366
+Evaluation/MinReturn                  -43.1341
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.748703
+Evaluation/TerminationRate              0
+TotalEnvSteps                       13986
+----------------------------------  ------------
+2022-08-28 12:46:12 | [trpo_pendulum] epoch #7 | Saving snapshot...
+2022-08-28 12:46:12 | [trpo_pendulum] epoch #7 | Saved
+2022-08-28 12:46:12 | [trpo_pendulum] epoch #7 | Time 7.87 s
+2022-08-28 12:46:12 | [trpo_pendulum] epoch #7 | EpochTime 0.94 s
+----------------------------------  -----------
+Evaluation/AverageDiscountedReturn     -3.9706
+Evaluation/AverageReturn              -37.3515
+Evaluation/Iteration                    7
+Evaluation/MaxReturn                  -36.2448
+Evaluation/MinReturn                  -38.4582
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    1.10669
+Evaluation/TerminationRate              0
+TotalEnvSteps                       15984
+----------------------------------  -----------
+2022-08-28 12:46:13 | [trpo_pendulum] epoch #8 | Saving snapshot...
+2022-08-28 12:46:13 | [trpo_pendulum] epoch #8 | Saved
+2022-08-28 12:46:13 | [trpo_pendulum] epoch #8 | Time 8.80 s
+2022-08-28 12:46:13 | [trpo_pendulum] epoch #8 | EpochTime 0.93 s
+----------------------------------  -----------
+Evaluation/AverageDiscountedReturn     -2.84885
+Evaluation/AverageReturn              -28.9341
+Evaluation/Iteration                    8
+Evaluation/MaxReturn                  -27.7381
+Evaluation/MinReturn                  -30.13
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    1.19591
+Evaluation/TerminationRate              0
+TotalEnvSteps                       17982
+----------------------------------  -----------
+2022-08-28 12:46:14 | [trpo_pendulum] epoch #9 | Saving snapshot...
+2022-08-28 12:46:14 | [trpo_pendulum] epoch #9 | Saved
+2022-08-28 12:46:14 | [trpo_pendulum] epoch #9 | Time 9.70 s
+2022-08-28 12:46:14 | [trpo_pendulum] epoch #9 | EpochTime 0.90 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -2.27397
+Evaluation/AverageReturn              -23.5466
+Evaluation/Iteration                    9
+Evaluation/MaxReturn                  -22.9622
+Evaluation/MinReturn                  -24.131
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.584398
+Evaluation/TerminationRate              0
+TotalEnvSteps                       19980
+----------------------------------  ------------
+2022-08-28 12:46:15 | [trpo_pendulum] epoch #10 | Saving snapshot...
+2022-08-28 12:46:15 | [trpo_pendulum] epoch #10 | Saved
+2022-08-28 12:46:15 | [trpo_pendulum] epoch #10 | Time 10.64 s
+2022-08-28 12:46:15 | [trpo_pendulum] epoch #10 | EpochTime 0.94 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -1.85477
+Evaluation/AverageReturn              -19.1213
+Evaluation/Iteration                   10
+Evaluation/MaxReturn                  -18.4005
+Evaluation/MinReturn                  -19.8421
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.720803
+Evaluation/TerminationRate              0
+TotalEnvSteps                       21978
+----------------------------------  ------------
+2022-08-28 12:46:16 | [trpo_pendulum] epoch #11 | Saving snapshot...
+2022-08-28 12:46:16 | [trpo_pendulum] epoch #11 | Saved
+2022-08-28 12:46:16 | [trpo_pendulum] epoch #11 | Time 11.53 s
+2022-08-28 12:46:16 | [trpo_pendulum] epoch #11 | EpochTime 0.89 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -1.57347
+Evaluation/AverageReturn              -16.9716
+Evaluation/Iteration                   11
+Evaluation/MaxReturn                  -16.3093
+Evaluation/MinReturn                  -17.6339
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.662307
+Evaluation/TerminationRate              0
+TotalEnvSteps                       23976
+----------------------------------  ------------
+2022-08-28 12:46:17 | [trpo_pendulum] epoch #12 | Saving snapshot...
+2022-08-28 12:46:17 | [trpo_pendulum] epoch #12 | Saved
+2022-08-28 12:46:17 | [trpo_pendulum] epoch #12 | Time 12.45 s
+2022-08-28 12:46:17 | [trpo_pendulum] epoch #12 | EpochTime 0.91 s
+----------------------------------  -----------
+Evaluation/AverageDiscountedReturn     -1.52642
+Evaluation/AverageReturn              -14.6186
+Evaluation/Iteration                   12
+Evaluation/MaxReturn                  -14.3367
+Evaluation/MinReturn                  -14.9006
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.28195
+Evaluation/TerminationRate              0
+TotalEnvSteps                       25974
+----------------------------------  -----------
+2022-08-28 12:46:17 | [trpo_pendulum] epoch #13 | Saving snapshot...
+2022-08-28 12:46:18 | [trpo_pendulum] epoch #13 | Saved
+2022-08-28 12:46:18 | [trpo_pendulum] epoch #13 | Time 13.36 s
+2022-08-28 12:46:18 | [trpo_pendulum] epoch #13 | EpochTime 0.91 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -1.41662
+Evaluation/AverageReturn              -13.6125
+Evaluation/Iteration                   13
+Evaluation/MaxReturn                  -13.1134
+Evaluation/MinReturn                  -14.1115
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.499028
+Evaluation/TerminationRate              0
+TotalEnvSteps                       27972
+----------------------------------  ------------
+2022-08-28 12:46:18 | [trpo_pendulum] epoch #14 | Saving snapshot...
+2022-08-28 12:46:19 | [trpo_pendulum] epoch #14 | Saved
+2022-08-28 12:46:19 | [trpo_pendulum] epoch #14 | Time 14.36 s
+2022-08-28 12:46:19 | [trpo_pendulum] epoch #14 | EpochTime 0.99 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -1.10728
+Evaluation/AverageReturn              -11.4599
+Evaluation/Iteration                   14
+Evaluation/MaxReturn                  -11.3293
+Evaluation/MinReturn                  -11.5904
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.130563
+Evaluation/TerminationRate              0
+TotalEnvSteps                       29970
+----------------------------------  ------------
+2022-08-28 12:46:19 | [trpo_pendulum] epoch #15 | Saving snapshot...
+2022-08-28 12:46:20 | [trpo_pendulum] epoch #15 | Saved
+2022-08-28 12:46:20 | [trpo_pendulum] epoch #15 | Time 15.40 s
+2022-08-28 12:46:20 | [trpo_pendulum] epoch #15 | EpochTime 1.04 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.965766
+Evaluation/AverageReturn              -10.6438
+Evaluation/Iteration                   15
+Evaluation/MaxReturn                  -10.6084
+Evaluation/MinReturn                  -10.6792
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0354048
+Evaluation/TerminationRate              0
+TotalEnvSteps                       31968
+----------------------------------  -------------
+2022-08-28 12:46:20 | [trpo_pendulum] epoch #16 | Saving snapshot...
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #16 | Saved
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #16 | Time 16.37 s
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #16 | EpochTime 0.97 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.830578
+Evaluation/AverageReturn               -8.34246
+Evaluation/Iteration                   16
+Evaluation/MaxReturn                   -8.25495
+Evaluation/MinReturn                   -8.42998
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0875124
+Evaluation/TerminationRate              0
+TotalEnvSteps                       33966
+----------------------------------  -------------
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #17 | Saving snapshot...
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #17 | Saved
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #17 | Time 17.34 s
+2022-08-28 12:46:21 | [trpo_pendulum] epoch #17 | EpochTime 0.98 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -0.618893
+Evaluation/AverageReturn               -6.47611
+Evaluation/Iteration                   17
+Evaluation/MaxReturn                   -6.40407
+Evaluation/MinReturn                   -6.54815
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.072041
+Evaluation/TerminationRate              0
+TotalEnvSteps                       35964
+----------------------------------  ------------
+2022-08-28 12:46:22 | [trpo_pendulum] epoch #18 | Saving snapshot...
+2022-08-28 12:46:22 | [trpo_pendulum] epoch #18 | Saved
+2022-08-28 12:46:22 | [trpo_pendulum] epoch #18 | Time 18.24 s
+2022-08-28 12:46:22 | [trpo_pendulum] epoch #18 | EpochTime 0.88 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -0.621921
+Evaluation/AverageReturn               -6.09909
+Evaluation/Iteration                   18
+Evaluation/MaxReturn                   -5.81511
+Evaluation/MinReturn                   -6.38307
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.283982
+Evaluation/TerminationRate              0
+TotalEnvSteps                       37962
+----------------------------------  ------------
+2022-08-28 12:46:23 | [trpo_pendulum] epoch #19 | Saving snapshot...
+2022-08-28 12:46:23 | [trpo_pendulum] epoch #19 | Saved
+2022-08-28 12:46:23 | [trpo_pendulum] epoch #19 | Time 19.13 s
+2022-08-28 12:46:23 | [trpo_pendulum] epoch #19 | EpochTime 0.89 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -0.517162
+Evaluation/AverageReturn               -4.93949
+Evaluation/Iteration                   19
+Evaluation/MaxReturn                   -4.74845
+Evaluation/MinReturn                   -5.13053
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.191039
+Evaluation/TerminationRate              0
+TotalEnvSteps                       39960
+----------------------------------  ------------
+2022-08-28 12:46:24 | [trpo_pendulum] epoch #20 | Saving snapshot...
+2022-08-28 12:46:24 | [trpo_pendulum] epoch #20 | Saved
+2022-08-28 12:46:24 | [trpo_pendulum] epoch #20 | Time 20.03 s
+2022-08-28 12:46:24 | [trpo_pendulum] epoch #20 | EpochTime 0.90 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.400666
+Evaluation/AverageReturn               -3.92346
+Evaluation/Iteration                   20
+Evaluation/MaxReturn                   -3.85802
+Evaluation/MinReturn                   -3.98889
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0654332
+Evaluation/TerminationRate              0
+TotalEnvSteps                       41958
+----------------------------------  -------------
+2022-08-28 12:46:25 | [trpo_pendulum] epoch #21 | Saving snapshot...
+2022-08-28 12:46:25 | [trpo_pendulum] epoch #21 | Saved
+2022-08-28 12:46:25 | [trpo_pendulum] epoch #21 | Time 20.97 s
+2022-08-28 12:46:25 | [trpo_pendulum] epoch #21 | EpochTime 0.94 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -0.360606
+Evaluation/AverageReturn               -3.44755
+Evaluation/Iteration                   21
+Evaluation/MaxReturn                   -3.269
+Evaluation/MinReturn                   -3.6261
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.178552
+Evaluation/TerminationRate              0
+TotalEnvSteps                       43956
+----------------------------------  ------------
+2022-08-28 12:46:26 | [trpo_pendulum] epoch #22 | Saving snapshot...
+2022-08-28 12:46:26 | [trpo_pendulum] epoch #22 | Saved
+2022-08-28 12:46:26 | [trpo_pendulum] epoch #22 | Time 21.91 s
+2022-08-28 12:46:26 | [trpo_pendulum] epoch #22 | EpochTime 0.94 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.282524
+Evaluation/AverageReturn               -2.9279
+Evaluation/Iteration                   22
+Evaluation/MaxReturn                   -2.92312
+Evaluation/MinReturn                   -2.93267
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00477958
+Evaluation/TerminationRate              0
+TotalEnvSteps                       45954
+----------------------------------  --------------
+2022-08-28 12:46:27 | [trpo_pendulum] epoch #23 | Saving snapshot...
+2022-08-28 12:46:27 | [trpo_pendulum] epoch #23 | Saved
+2022-08-28 12:46:27 | [trpo_pendulum] epoch #23 | Time 22.87 s
+2022-08-28 12:46:27 | [trpo_pendulum] epoch #23 | EpochTime 0.96 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -0.261421
+Evaluation/AverageReturn               -2.63496
+Evaluation/Iteration                   23
+Evaluation/MaxReturn                   -2.58194
+Evaluation/MinReturn                   -2.68797
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.053019
+Evaluation/TerminationRate              0
+TotalEnvSteps                       47952
+----------------------------------  ------------
+2022-08-28 12:46:28 | [trpo_pendulum] epoch #24 | Saving snapshot...
+2022-08-28 12:46:28 | [trpo_pendulum] epoch #24 | Saved
+2022-08-28 12:46:28 | [trpo_pendulum] epoch #24 | Time 23.83 s
+2022-08-28 12:46:28 | [trpo_pendulum] epoch #24 | EpochTime 0.96 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.197434
+Evaluation/AverageReturn               -2.03984
+Evaluation/Iteration                   24
+Evaluation/MaxReturn                   -2.00891
+Evaluation/MinReturn                   -2.07077
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0309331
+Evaluation/TerminationRate              0
+TotalEnvSteps                       49950
+----------------------------------  -------------
+2022-08-28 12:46:29 | [trpo_pendulum] epoch #25 | Saving snapshot...
+2022-08-28 12:46:29 | [trpo_pendulum] epoch #25 | Saved
+2022-08-28 12:46:29 | [trpo_pendulum] epoch #25 | Time 24.75 s
+2022-08-28 12:46:29 | [trpo_pendulum] epoch #25 | EpochTime 0.91 s
+----------------------------------  ------------
+Evaluation/AverageDiscountedReturn     -0.176922
+Evaluation/AverageReturn               -1.95547
+Evaluation/Iteration                   25
+Evaluation/MaxReturn                   -1.85129
+Evaluation/MinReturn                   -2.05965
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.10418
+Evaluation/TerminationRate              0
+TotalEnvSteps                       51948
+----------------------------------  ------------
+2022-08-28 12:46:30 | [trpo_pendulum] epoch #26 | Saving snapshot...
+2022-08-28 12:46:30 | [trpo_pendulum] epoch #26 | Saved
+2022-08-28 12:46:30 | [trpo_pendulum] epoch #26 | Time 25.65 s
+2022-08-28 12:46:30 | [trpo_pendulum] epoch #26 | EpochTime 0.90 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.14798
+Evaluation/AverageReturn               -1.61066
+Evaluation/Iteration                   26
+Evaluation/MaxReturn                   -1.56908
+Evaluation/MinReturn                   -1.65224
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0415766
+Evaluation/TerminationRate              0
+TotalEnvSteps                       53946
+----------------------------------  -------------
+2022-08-28 12:46:31 | [trpo_pendulum] epoch #27 | Saving snapshot...
+2022-08-28 12:46:31 | [trpo_pendulum] epoch #27 | Saved
+2022-08-28 12:46:31 | [trpo_pendulum] epoch #27 | Time 26.62 s
+2022-08-28 12:46:31 | [trpo_pendulum] epoch #27 | EpochTime 0.97 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.121301
+Evaluation/AverageReturn               -1.35605
+Evaluation/Iteration                   27
+Evaluation/MaxReturn                   -1.3464
+Evaluation/MinReturn                   -1.36571
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00965501
+Evaluation/TerminationRate              0
+TotalEnvSteps                       55944
+----------------------------------  --------------
+2022-08-28 12:46:32 | [trpo_pendulum] epoch #28 | Saving snapshot...
+2022-08-28 12:46:32 | [trpo_pendulum] epoch #28 | Saved
+2022-08-28 12:46:32 | [trpo_pendulum] epoch #28 | Time 27.55 s
+2022-08-28 12:46:32 | [trpo_pendulum] epoch #28 | EpochTime 0.93 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.120014
+Evaluation/AverageReturn               -1.27758
+Evaluation/Iteration                   28
+Evaluation/MaxReturn                   -1.25772
+Evaluation/MinReturn                   -1.29744
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0198647
+Evaluation/TerminationRate              0
+TotalEnvSteps                       57942
+----------------------------------  -------------
+2022-08-28 12:46:33 | [trpo_pendulum] epoch #29 | Saving snapshot...
+2022-08-28 12:46:33 | [trpo_pendulum] epoch #29 | Saved
+2022-08-28 12:46:33 | [trpo_pendulum] epoch #29 | Time 28.48 s
+2022-08-28 12:46:33 | [trpo_pendulum] epoch #29 | EpochTime 0.93 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.100155
+Evaluation/AverageReturn               -1.0303
+Evaluation/Iteration                   29
+Evaluation/MaxReturn                   -1.01599
+Evaluation/MinReturn                   -1.04462
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0143146
+Evaluation/TerminationRate              0
+TotalEnvSteps                       59940
+----------------------------------  -------------
+2022-08-28 12:46:33 | [trpo_pendulum] epoch #30 | Saving snapshot...
+2022-08-28 12:46:34 | [trpo_pendulum] epoch #30 | Saved
+2022-08-28 12:46:34 | [trpo_pendulum] epoch #30 | Time 29.51 s
+2022-08-28 12:46:34 | [trpo_pendulum] epoch #30 | EpochTime 1.02 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.101661
+Evaluation/AverageReturn               -0.979391
+Evaluation/Iteration                   30
+Evaluation/MaxReturn                   -0.947309
+Evaluation/MinReturn                   -1.01147
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0320814
+Evaluation/TerminationRate              0
+TotalEnvSteps                       61938
+----------------------------------  -------------
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #31 | Saving snapshot...
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #31 | Saved
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #31 | Time 30.38 s
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #31 | EpochTime 0.87 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0627784
+Evaluation/AverageReturn               -0.696224
+Evaluation/Iteration                   31
+Evaluation/MaxReturn                   -0.654422
+Evaluation/MinReturn                   -0.738026
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0418018
+Evaluation/TerminationRate              0
+TotalEnvSteps                       63936
+----------------------------------  -------------
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #32 | Saving snapshot...
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #32 | Saved
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #32 | Time 31.30 s
+2022-08-28 12:46:35 | [trpo_pendulum] epoch #32 | EpochTime 0.92 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0786656
+Evaluation/AverageReturn               -0.751305
+Evaluation/Iteration                   32
+Evaluation/MaxReturn                   -0.720351
+Evaluation/MinReturn                   -0.78226
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0309543
+Evaluation/TerminationRate              0
+TotalEnvSteps                       65934
+----------------------------------  -------------
+2022-08-28 12:46:36 | [trpo_pendulum] epoch #33 | Saving snapshot...
+2022-08-28 12:46:36 | [trpo_pendulum] epoch #33 | Saved
+2022-08-28 12:46:36 | [trpo_pendulum] epoch #33 | Time 32.18 s
+2022-08-28 12:46:36 | [trpo_pendulum] epoch #33 | EpochTime 0.88 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0689518
+Evaluation/AverageReturn               -0.726532
+Evaluation/Iteration                   33
+Evaluation/MaxReturn                   -0.708018
+Evaluation/MinReturn                   -0.745045
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0185135
+Evaluation/TerminationRate              0
+TotalEnvSteps                       67932
+----------------------------------  -------------
+2022-08-28 12:46:37 | [trpo_pendulum] epoch #34 | Saving snapshot...
+2022-08-28 12:46:37 | [trpo_pendulum] epoch #34 | Saved
+2022-08-28 12:46:37 | [trpo_pendulum] epoch #34 | Time 33.10 s
+2022-08-28 12:46:37 | [trpo_pendulum] epoch #34 | EpochTime 0.92 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0489281
+Evaluation/AverageReturn               -0.500005
+Evaluation/Iteration                   34
+Evaluation/MaxReturn                   -0.473798
+Evaluation/MinReturn                   -0.526212
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0262073
+Evaluation/TerminationRate              0
+TotalEnvSteps                       69930
+----------------------------------  -------------
+2022-08-28 12:46:38 | [trpo_pendulum] epoch #35 | Saving snapshot...
+2022-08-28 12:46:38 | [trpo_pendulum] epoch #35 | Saved
+2022-08-28 12:46:38 | [trpo_pendulum] epoch #35 | Time 34.02 s
+2022-08-28 12:46:38 | [trpo_pendulum] epoch #35 | EpochTime 0.92 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.0446657
+Evaluation/AverageReturn               -0.454639
+Evaluation/Iteration                   35
+Evaluation/MaxReturn                   -0.447402
+Evaluation/MinReturn                   -0.461876
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00723707
+Evaluation/TerminationRate              0
+TotalEnvSteps                       71928
+----------------------------------  --------------
+2022-08-28 12:46:39 | [trpo_pendulum] epoch #36 | Saving snapshot...
+2022-08-28 12:46:39 | [trpo_pendulum] epoch #36 | Saved
+2022-08-28 12:46:39 | [trpo_pendulum] epoch #36 | Time 34.90 s
+2022-08-28 12:46:39 | [trpo_pendulum] epoch #36 | EpochTime 0.88 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0652244
+Evaluation/AverageReturn               -0.655063
+Evaluation/Iteration                   36
+Evaluation/MaxReturn                   -0.624482
+Evaluation/MinReturn                   -0.685645
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0305811
+Evaluation/TerminationRate              0
+TotalEnvSteps                       73926
+----------------------------------  -------------
+2022-08-28 12:46:40 | [trpo_pendulum] epoch #37 | Saving snapshot...
+2022-08-28 12:46:40 | [trpo_pendulum] epoch #37 | Saved
+2022-08-28 12:46:40 | [trpo_pendulum] epoch #37 | Time 35.92 s
+2022-08-28 12:46:40 | [trpo_pendulum] epoch #37 | EpochTime 1.02 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.037721
+Evaluation/AverageReturn               -0.371714
+Evaluation/Iteration                   37
+Evaluation/MaxReturn                   -0.356184
+Evaluation/MinReturn                   -0.387245
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0155307
+Evaluation/TerminationRate              0
+TotalEnvSteps                       75924
+----------------------------------  -------------
+2022-08-28 12:46:41 | [trpo_pendulum] epoch #38 | Saving snapshot...
+2022-08-28 12:46:41 | [trpo_pendulum] epoch #38 | Saved
+2022-08-28 12:46:41 | [trpo_pendulum] epoch #38 | Time 36.88 s
+2022-08-28 12:46:41 | [trpo_pendulum] epoch #38 | EpochTime 0.95 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn     -0.0330905
+Evaluation/AverageReturn               -0.334622
+Evaluation/Iteration                   38
+Evaluation/MaxReturn                   -0.334369
+Evaluation/MinReturn                   -0.334876
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.000253652
+Evaluation/TerminationRate              0
+TotalEnvSteps                       77922
+----------------------------------  ---------------
+2022-08-28 12:46:42 | [trpo_pendulum] epoch #39 | Saving snapshot...
+2022-08-28 12:46:42 | [trpo_pendulum] epoch #39 | Saved
+2022-08-28 12:46:42 | [trpo_pendulum] epoch #39 | Time 37.77 s
+2022-08-28 12:46:42 | [trpo_pendulum] epoch #39 | EpochTime 0.89 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.0253337
+Evaluation/AverageReturn               -0.276556
+Evaluation/Iteration                   39
+Evaluation/MaxReturn                   -0.268878
+Evaluation/MinReturn                   -0.284234
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00767794
+Evaluation/TerminationRate              0
+TotalEnvSteps                       79920
+----------------------------------  --------------
+2022-08-28 12:46:43 | [trpo_pendulum] epoch #40 | Saving snapshot...
+2022-08-28 12:46:43 | [trpo_pendulum] epoch #40 | Saved
+2022-08-28 12:46:43 | [trpo_pendulum] epoch #40 | Time 38.75 s
+2022-08-28 12:46:43 | [trpo_pendulum] epoch #40 | EpochTime 0.98 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0300451
+Evaluation/AverageReturn               -0.319365
+Evaluation/Iteration                   40
+Evaluation/MaxReturn                   -0.305276
+Evaluation/MinReturn                   -0.333453
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0140887
+Evaluation/TerminationRate              0
+TotalEnvSteps                       81918
+----------------------------------  -------------
+2022-08-28 12:46:44 | [trpo_pendulum] epoch #41 | Saving snapshot...
+2022-08-28 12:46:44 | [trpo_pendulum] epoch #41 | Saved
+2022-08-28 12:46:44 | [trpo_pendulum] epoch #41 | Time 39.67 s
+2022-08-28 12:46:44 | [trpo_pendulum] epoch #41 | EpochTime 0.92 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.0245865
+Evaluation/AverageReturn               -0.265097
+Evaluation/Iteration                   41
+Evaluation/MaxReturn                   -0.256046
+Evaluation/MinReturn                   -0.274147
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00905095
+Evaluation/TerminationRate              0
+TotalEnvSteps                       83916
+----------------------------------  --------------
+2022-08-28 12:46:45 | [trpo_pendulum] epoch #42 | Saving snapshot...
+2022-08-28 12:46:45 | [trpo_pendulum] epoch #42 | Saved
+2022-08-28 12:46:45 | [trpo_pendulum] epoch #42 | Time 40.55 s
+2022-08-28 12:46:45 | [trpo_pendulum] epoch #42 | EpochTime 0.88 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0384784
+Evaluation/AverageReturn               -0.394006
+Evaluation/Iteration                   42
+Evaluation/MaxReturn                   -0.378381
+Evaluation/MinReturn                   -0.409631
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0156249
+Evaluation/TerminationRate              0
+TotalEnvSteps                       85914
+----------------------------------  -------------
+2022-08-28 12:46:46 | [trpo_pendulum] epoch #43 | Saving snapshot...
+2022-08-28 12:46:46 | [trpo_pendulum] epoch #43 | Saved
+2022-08-28 12:46:46 | [trpo_pendulum] epoch #43 | Time 41.46 s
+2022-08-28 12:46:46 | [trpo_pendulum] epoch #43 | EpochTime 0.91 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0283745
+Evaluation/AverageReturn               -0.279061
+Evaluation/Iteration                   43
+Evaluation/MaxReturn                   -0.266211
+Evaluation/MinReturn                   -0.29191
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0128493
+Evaluation/TerminationRate              0
+TotalEnvSteps                       87912
+----------------------------------  -------------
+2022-08-28 12:46:47 | [trpo_pendulum] epoch #44 | Saving snapshot...
+2022-08-28 12:46:47 | [trpo_pendulum] epoch #44 | Saved
+2022-08-28 12:46:47 | [trpo_pendulum] epoch #44 | Time 42.44 s
+2022-08-28 12:46:47 | [trpo_pendulum] epoch #44 | EpochTime 0.98 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.0276553
+Evaluation/AverageReturn               -0.319153
+Evaluation/Iteration                   44
+Evaluation/MaxReturn                   -0.311285
+Evaluation/MinReturn                   -0.327021
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00786798
+Evaluation/TerminationRate              0
+TotalEnvSteps                       89910
+----------------------------------  --------------
+2022-08-28 12:46:48 | [trpo_pendulum] epoch #45 | Saving snapshot...
+2022-08-28 12:46:48 | [trpo_pendulum] epoch #45 | Saved
+2022-08-28 12:46:48 | [trpo_pendulum] epoch #45 | Time 43.45 s
+2022-08-28 12:46:48 | [trpo_pendulum] epoch #45 | EpochTime 1.01 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0338408
+Evaluation/AverageReturn               -0.355784
+Evaluation/Iteration                   45
+Evaluation/MaxReturn                   -0.344627
+Evaluation/MinReturn                   -0.366941
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0111571
+Evaluation/TerminationRate              0
+TotalEnvSteps                       91908
+----------------------------------  -------------
+2022-08-28 12:46:48 | [trpo_pendulum] epoch #46 | Saving snapshot...
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #46 | Saved
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #46 | Time 44.37 s
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #46 | EpochTime 0.92 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.015896
+Evaluation/AverageReturn               -0.13772
+Evaluation/Iteration                   46
+Evaluation/MaxReturn                   -0.134173
+Evaluation/MinReturn                   -0.141267
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00354723
+Evaluation/TerminationRate              0
+TotalEnvSteps                       93906
+----------------------------------  --------------
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #47 | Saving snapshot...
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #47 | Saved
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #47 | Time 45.26 s
+2022-08-28 12:46:49 | [trpo_pendulum] epoch #47 | EpochTime 0.90 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.0277736
+Evaluation/AverageReturn               -0.282576
+Evaluation/Iteration                   47
+Evaluation/MaxReturn                   -0.274068
+Evaluation/MinReturn                   -0.291085
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00850887
+Evaluation/TerminationRate              0
+TotalEnvSteps                       95904
+----------------------------------  --------------
+2022-08-28 12:46:50 | [trpo_pendulum] epoch #48 | Saving snapshot...
+2022-08-28 12:46:50 | [trpo_pendulum] epoch #48 | Saved
+2022-08-28 12:46:50 | [trpo_pendulum] epoch #48 | Time 46.20 s
+2022-08-28 12:46:50 | [trpo_pendulum] epoch #48 | EpochTime 0.93 s
+----------------------------------  -------------
+Evaluation/AverageDiscountedReturn     -0.0221981
+Evaluation/AverageReturn               -0.204127
+Evaluation/Iteration                   48
+Evaluation/MaxReturn                   -0.187352
+Evaluation/MinReturn                   -0.220902
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.0167751
+Evaluation/TerminationRate              0
+TotalEnvSteps                       97902
+----------------------------------  -------------
+2022-08-28 12:46:51 | [trpo_pendulum] epoch #49 | Saving snapshot...
+2022-08-28 12:46:51 | [trpo_pendulum] epoch #49 | Saved
+2022-08-28 12:46:51 | [trpo_pendulum] epoch #49 | Time 47.16 s
+2022-08-28 12:46:51 | [trpo_pendulum] epoch #49 | EpochTime 0.96 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn     -0.0161394
+Evaluation/AverageReturn               -0.16644
+Evaluation/Iteration                   49
+Evaluation/MaxReturn                   -0.162598
+Evaluation/MinReturn                   -0.170283
+Evaluation/NumEpisodes                  2
+Evaluation/StdReturn                    0.00384227
+Evaluation/TerminationRate              0
+TotalEnvSteps                       99900
+----------------------------------  --------------
+2022-08-28 12:46:52 | [trpo_pendulum] epoch #50 | Saving snapshot...
+2022-08-28 12:46:52 | [trpo_pendulum] epoch #50 | Saved
+2022-08-28 12:46:52 | [trpo_pendulum] epoch #50 | Time 48.10 s
+2022-08-28 12:46:52 | [trpo_pendulum] epoch #50 | EpochTime 0.94 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.0112384
+Evaluation/AverageReturn                -0.114073
+Evaluation/Iteration                    50
+Evaluation/MaxReturn                    -0.10929
+Evaluation/MinReturn                    -0.118856
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00478271
+Evaluation/TerminationRate               0
+TotalEnvSteps                       101898
+----------------------------------  ---------------
+2022-08-28 12:46:53 | [trpo_pendulum] epoch #51 | Saving snapshot...
+2022-08-28 12:46:53 | [trpo_pendulum] epoch #51 | Saved
+2022-08-28 12:46:53 | [trpo_pendulum] epoch #51 | Time 49.03 s
+2022-08-28 12:46:53 | [trpo_pendulum] epoch #51 | EpochTime 0.93 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.0110876
+Evaluation/AverageReturn                -0.107189
+Evaluation/Iteration                    51
+Evaluation/MaxReturn                    -0.0993501
+Evaluation/MinReturn                    -0.115028
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00783908
+Evaluation/TerminationRate               0
+TotalEnvSteps                       103896
+----------------------------------  ---------------
+2022-08-28 12:46:54 | [trpo_pendulum] epoch #52 | Saving snapshot...
+2022-08-28 12:46:54 | [trpo_pendulum] epoch #52 | Saved
+2022-08-28 12:46:54 | [trpo_pendulum] epoch #52 | Time 50.03 s
+2022-08-28 12:46:54 | [trpo_pendulum] epoch #52 | EpochTime 0.99 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.0140461
+Evaluation/AverageReturn                -0.111505
+Evaluation/Iteration                    52
+Evaluation/MaxReturn                    -0.103962
+Evaluation/MinReturn                    -0.119047
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00754265
+Evaluation/TerminationRate               0
+TotalEnvSteps                       105894
+----------------------------------  ---------------
+2022-08-28 12:46:55 | [trpo_pendulum] epoch #53 | Saving snapshot...
+2022-08-28 12:46:55 | [trpo_pendulum] epoch #53 | Saved
+2022-08-28 12:46:55 | [trpo_pendulum] epoch #53 | Time 51.01 s
+2022-08-28 12:46:55 | [trpo_pendulum] epoch #53 | EpochTime 0.97 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.010731
+Evaluation/AverageReturn                -0.10393
+Evaluation/Iteration                    53
+Evaluation/MaxReturn                    -0.10117
+Evaluation/MinReturn                    -0.10669
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00275987
+Evaluation/TerminationRate               0
+TotalEnvSteps                       107892
+----------------------------------  ---------------
+2022-08-28 12:46:56 | [trpo_pendulum] epoch #54 | Saving snapshot...
+2022-08-28 12:46:56 | [trpo_pendulum] epoch #54 | Saved
+2022-08-28 12:46:56 | [trpo_pendulum] epoch #54 | Time 51.98 s
+2022-08-28 12:46:56 | [trpo_pendulum] epoch #54 | EpochTime 0.97 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00778796
+Evaluation/AverageReturn                -0.0767163
+Evaluation/Iteration                    54
+Evaluation/MaxReturn                    -0.0735962
+Evaluation/MinReturn                    -0.0798363
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00312004
+Evaluation/TerminationRate               0
+TotalEnvSteps                       109890
+----------------------------------  ---------------
+2022-08-28 12:46:57 | [trpo_pendulum] epoch #55 | Saving snapshot...
+2022-08-28 12:46:57 | [trpo_pendulum] epoch #55 | Saved
+2022-08-28 12:46:57 | [trpo_pendulum] epoch #55 | Time 52.93 s
+2022-08-28 12:46:57 | [trpo_pendulum] epoch #55 | EpochTime 0.95 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00633571
+Evaluation/AverageReturn                -0.0648874
+Evaluation/Iteration                    55
+Evaluation/MaxReturn                    -0.0626971
+Evaluation/MinReturn                    -0.0670776
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00219025
+Evaluation/TerminationRate               0
+TotalEnvSteps                       111888
+----------------------------------  ---------------
+2022-08-28 12:46:58 | [trpo_pendulum] epoch #56 | Saving snapshot...
+2022-08-28 12:46:58 | [trpo_pendulum] epoch #56 | Saved
+2022-08-28 12:46:58 | [trpo_pendulum] epoch #56 | Time 53.95 s
+2022-08-28 12:46:58 | [trpo_pendulum] epoch #56 | EpochTime 1.01 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.0116602
+Evaluation/AverageReturn                -0.0944041
+Evaluation/Iteration                    56
+Evaluation/MaxReturn                    -0.0895861
+Evaluation/MinReturn                    -0.099222
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00481797
+Evaluation/TerminationRate               0
+TotalEnvSteps                       113886
+----------------------------------  ---------------
+2022-08-28 12:46:59 | [trpo_pendulum] epoch #57 | Saving snapshot...
+2022-08-28 12:46:59 | [trpo_pendulum] epoch #57 | Saved
+2022-08-28 12:46:59 | [trpo_pendulum] epoch #57 | Time 54.86 s
+2022-08-28 12:46:59 | [trpo_pendulum] epoch #57 | EpochTime 0.91 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00668546
+Evaluation/AverageReturn                -0.0699919
+Evaluation/Iteration                    57
+Evaluation/MaxReturn                    -0.067014
+Evaluation/MinReturn                    -0.0729699
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00297799
+Evaluation/TerminationRate               0
+TotalEnvSteps                       115884
+----------------------------------  ---------------
+2022-08-28 12:47:00 | [trpo_pendulum] epoch #58 | Saving snapshot...
+2022-08-28 12:47:00 | [trpo_pendulum] epoch #58 | Saved
+2022-08-28 12:47:00 | [trpo_pendulum] epoch #58 | Time 55.78 s
+2022-08-28 12:47:00 | [trpo_pendulum] epoch #58 | EpochTime 0.92 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00585117
+Evaluation/AverageReturn                -0.0577326
+Evaluation/Iteration                    58
+Evaluation/MaxReturn                    -0.0576224
+Evaluation/MinReturn                    -0.0578427
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000110175
+Evaluation/TerminationRate               0
+TotalEnvSteps                       117882
+----------------------------------  ----------------
+2022-08-28 12:47:01 | [trpo_pendulum] epoch #59 | Saving snapshot...
+2022-08-28 12:47:01 | [trpo_pendulum] epoch #59 | Saved
+2022-08-28 12:47:01 | [trpo_pendulum] epoch #59 | Time 56.71 s
+2022-08-28 12:47:01 | [trpo_pendulum] epoch #59 | EpochTime 0.94 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00453942
+Evaluation/AverageReturn                -0.0451482
+Evaluation/Iteration                    59
+Evaluation/MaxReturn                    -0.0436992
+Evaluation/MinReturn                    -0.0465971
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00144898
+Evaluation/TerminationRate               0
+TotalEnvSteps                       119880
+----------------------------------  ---------------
+2022-08-28 12:47:02 | [trpo_pendulum] epoch #60 | Saving snapshot...
+2022-08-28 12:47:02 | [trpo_pendulum] epoch #60 | Saved
+2022-08-28 12:47:02 | [trpo_pendulum] epoch #60 | Time 57.60 s
+2022-08-28 12:47:02 | [trpo_pendulum] epoch #60 | EpochTime 0.89 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00415639
+Evaluation/AverageReturn                -0.042672
+Evaluation/Iteration                    60
+Evaluation/MaxReturn                    -0.0409721
+Evaluation/MinReturn                    -0.0443719
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.0016999
+Evaluation/TerminationRate               0
+TotalEnvSteps                       121878
+----------------------------------  ---------------
+2022-08-28 12:47:03 | [trpo_pendulum] epoch #61 | Saving snapshot...
+2022-08-28 12:47:03 | [trpo_pendulum] epoch #61 | Saved
+2022-08-28 12:47:03 | [trpo_pendulum] epoch #61 | Time 58.56 s
+2022-08-28 12:47:03 | [trpo_pendulum] epoch #61 | EpochTime 0.97 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00450903
+Evaluation/AverageReturn                -0.0442356
+Evaluation/Iteration                    61
+Evaluation/MaxReturn                    -0.042749
+Evaluation/MinReturn                    -0.0457222
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00148656
+Evaluation/TerminationRate               0
+TotalEnvSteps                       123876
+----------------------------------  ---------------
+2022-08-28 12:47:04 | [trpo_pendulum] epoch #62 | Saving snapshot...
+2022-08-28 12:47:04 | [trpo_pendulum] epoch #62 | Saved
+2022-08-28 12:47:04 | [trpo_pendulum] epoch #62 | Time 59.47 s
+2022-08-28 12:47:04 | [trpo_pendulum] epoch #62 | EpochTime 0.90 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.0037362
+Evaluation/AverageReturn                -0.0395228
+Evaluation/Iteration                    62
+Evaluation/MaxReturn                    -0.0386121
+Evaluation/MinReturn                    -0.0404335
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000910708
+Evaluation/TerminationRate               0
+TotalEnvSteps                       125874
+----------------------------------  ----------------
+2022-08-28 12:47:04 | [trpo_pendulum] epoch #63 | Saving snapshot...
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #63 | Saved
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #63 | Time 60.37 s
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #63 | EpochTime 0.90 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00448651
+Evaluation/AverageReturn                -0.0442217
+Evaluation/Iteration                    63
+Evaluation/MaxReturn                    -0.0423725
+Evaluation/MinReturn                    -0.0460709
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00184922
+Evaluation/TerminationRate               0
+TotalEnvSteps                       127872
+----------------------------------  ---------------
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #64 | Saving snapshot...
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #64 | Saved
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #64 | Time 61.32 s
+2022-08-28 12:47:05 | [trpo_pendulum] epoch #64 | EpochTime 0.93 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00351893
+Evaluation/AverageReturn                -0.0332472
+Evaluation/Iteration                    64
+Evaluation/MaxReturn                    -0.032723
+Evaluation/MinReturn                    -0.0337714
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000524178
+Evaluation/TerminationRate               0
+TotalEnvSteps                       129870
+----------------------------------  ----------------
+2022-08-28 12:47:06 | [trpo_pendulum] epoch #65 | Saving snapshot...
+2022-08-28 12:47:06 | [trpo_pendulum] epoch #65 | Saved
+2022-08-28 12:47:06 | [trpo_pendulum] epoch #65 | Time 62.23 s
+2022-08-28 12:47:06 | [trpo_pendulum] epoch #65 | EpochTime 0.91 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00411048
+Evaluation/AverageReturn                -0.038163
+Evaluation/Iteration                    65
+Evaluation/MaxReturn                    -0.0378442
+Evaluation/MinReturn                    -0.0384819
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000318822
+Evaluation/TerminationRate               0
+TotalEnvSteps                       131868
+----------------------------------  ----------------
+2022-08-28 12:47:07 | [trpo_pendulum] epoch #66 | Saving snapshot...
+2022-08-28 12:47:07 | [trpo_pendulum] epoch #66 | Saved
+2022-08-28 12:47:07 | [trpo_pendulum] epoch #66 | Time 63.18 s
+2022-08-28 12:47:07 | [trpo_pendulum] epoch #66 | EpochTime 0.95 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00451162
+Evaluation/AverageReturn                -0.0416074
+Evaluation/Iteration                    66
+Evaluation/MaxReturn                    -0.0408051
+Evaluation/MinReturn                    -0.0424098
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000802378
+Evaluation/TerminationRate               0
+TotalEnvSteps                       133866
+----------------------------------  ----------------
+2022-08-28 12:47:08 | [trpo_pendulum] epoch #67 | Saving snapshot...
+2022-08-28 12:47:08 | [trpo_pendulum] epoch #67 | Saved
+2022-08-28 12:47:08 | [trpo_pendulum] epoch #67 | Time 64.15 s
+2022-08-28 12:47:08 | [trpo_pendulum] epoch #67 | EpochTime 0.95 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00333685
+Evaluation/AverageReturn                -0.0336183
+Evaluation/Iteration                    67
+Evaluation/MaxReturn                    -0.03293
+Evaluation/MinReturn                    -0.0343065
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000688257
+Evaluation/TerminationRate               0
+TotalEnvSteps                       135864
+----------------------------------  ----------------
+2022-08-28 12:47:09 | [trpo_pendulum] epoch #68 | Saving snapshot...
+2022-08-28 12:47:09 | [trpo_pendulum] epoch #68 | Saved
+2022-08-28 12:47:09 | [trpo_pendulum] epoch #68 | Time 65.05 s
+2022-08-28 12:47:09 | [trpo_pendulum] epoch #68 | EpochTime 0.90 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00299178
+Evaluation/AverageReturn                -0.0268587
+Evaluation/Iteration                    68
+Evaluation/MaxReturn                    -0.0259086
+Evaluation/MinReturn                    -0.0278088
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000950097
+Evaluation/TerminationRate               0
+TotalEnvSteps                       137862
+----------------------------------  ----------------
+2022-08-28 12:47:11 | [trpo_pendulum] epoch #69 | Saving snapshot...
+2022-08-28 12:47:11 | [trpo_pendulum] epoch #69 | Saved
+2022-08-28 12:47:11 | [trpo_pendulum] epoch #69 | Time 66.73 s
+2022-08-28 12:47:11 | [trpo_pendulum] epoch #69 | EpochTime 1.69 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00239386
+Evaluation/AverageReturn                -0.025069
+Evaluation/Iteration                    69
+Evaluation/MaxReturn                    -0.0247263
+Evaluation/MinReturn                    -0.0254117
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000342718
+Evaluation/TerminationRate               0
+TotalEnvSteps                       139860
+----------------------------------  ----------------
+2022-08-28 12:47:12 | [trpo_pendulum] epoch #70 | Saving snapshot...
+2022-08-28 12:47:12 | [trpo_pendulum] epoch #70 | Saved
+2022-08-28 12:47:12 | [trpo_pendulum] epoch #70 | Time 67.83 s
+2022-08-28 12:47:12 | [trpo_pendulum] epoch #70 | EpochTime 1.09 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00305548
+Evaluation/AverageReturn                -0.0311277
+Evaluation/Iteration                    70
+Evaluation/MaxReturn                    -0.0301636
+Evaluation/MinReturn                    -0.0320918
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000964115
+Evaluation/TerminationRate               0
+TotalEnvSteps                       141858
+----------------------------------  ----------------
+2022-08-28 12:47:13 | [trpo_pendulum] epoch #71 | Saving snapshot...
+2022-08-28 12:47:13 | [trpo_pendulum] epoch #71 | Saved
+2022-08-28 12:47:13 | [trpo_pendulum] epoch #71 | Time 68.89 s
+2022-08-28 12:47:13 | [trpo_pendulum] epoch #71 | EpochTime 1.06 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00250889
+Evaluation/AverageReturn                -0.0253054
+Evaluation/Iteration                    71
+Evaluation/MaxReturn                    -0.0235468
+Evaluation/MinReturn                    -0.027064
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00175862
+Evaluation/TerminationRate               0
+TotalEnvSteps                       143856
+----------------------------------  ---------------
+2022-08-28 12:47:14 | [trpo_pendulum] epoch #72 | Saving snapshot...
+2022-08-28 12:47:14 | [trpo_pendulum] epoch #72 | Saved
+2022-08-28 12:47:14 | [trpo_pendulum] epoch #72 | Time 69.82 s
+2022-08-28 12:47:14 | [trpo_pendulum] epoch #72 | EpochTime 0.92 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00209925
+Evaluation/AverageReturn                -0.0201795
+Evaluation/Iteration                    72
+Evaluation/MaxReturn                    -0.0196487
+Evaluation/MinReturn                    -0.0207102
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000530722
+Evaluation/TerminationRate               0
+TotalEnvSteps                       145854
+----------------------------------  ----------------
+2022-08-28 12:47:15 | [trpo_pendulum] epoch #73 | Saving snapshot...
+2022-08-28 12:47:15 | [trpo_pendulum] epoch #73 | Saved
+2022-08-28 12:47:15 | [trpo_pendulum] epoch #73 | Time 70.75 s
+2022-08-28 12:47:15 | [trpo_pendulum] epoch #73 | EpochTime 0.93 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.0018806
+Evaluation/AverageReturn                -0.0194078
+Evaluation/Iteration                    73
+Evaluation/MaxReturn                    -0.0192037
+Evaluation/MinReturn                    -0.0196119
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000204123
+Evaluation/TerminationRate               0
+TotalEnvSteps                       147852
+----------------------------------  ----------------
+2022-08-28 12:47:16 | [trpo_pendulum] epoch #74 | Saving snapshot...
+2022-08-28 12:47:16 | [trpo_pendulum] epoch #74 | Saved
+2022-08-28 12:47:16 | [trpo_pendulum] epoch #74 | Time 71.76 s
+2022-08-28 12:47:16 | [trpo_pendulum] epoch #74 | EpochTime 1.01 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00211469
+Evaluation/AverageReturn                -0.0205
+Evaluation/Iteration                    74
+Evaluation/MaxReturn                    -0.0203589
+Evaluation/MinReturn                    -0.020641
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000141036
+Evaluation/TerminationRate               0
+TotalEnvSteps                       149850
+----------------------------------  ----------------
+2022-08-28 12:47:17 | [trpo_pendulum] epoch #75 | Saving snapshot...
+2022-08-28 12:47:17 | [trpo_pendulum] epoch #75 | Saved
+2022-08-28 12:47:17 | [trpo_pendulum] epoch #75 | Time 72.79 s
+2022-08-28 12:47:17 | [trpo_pendulum] epoch #75 | EpochTime 1.03 s
+----------------------------------  --------------
+Evaluation/AverageDiscountedReturn      -0.0026734
+Evaluation/AverageReturn                -0.0258127
+Evaluation/Iteration                    75
+Evaluation/MaxReturn                    -0.023903
+Evaluation/MinReturn                    -0.0277224
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.0019097
+Evaluation/TerminationRate               0
+TotalEnvSteps                       151848
+----------------------------------  --------------
+2022-08-28 12:47:18 | [trpo_pendulum] epoch #76 | Saving snapshot...
+2022-08-28 12:47:18 | [trpo_pendulum] epoch #76 | Saved
+2022-08-28 12:47:18 | [trpo_pendulum] epoch #76 | Time 73.78 s
+2022-08-28 12:47:18 | [trpo_pendulum] epoch #76 | EpochTime 0.99 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00187866
+Evaluation/AverageReturn                -0.0185712
+Evaluation/Iteration                    76
+Evaluation/MaxReturn                    -0.0180696
+Evaluation/MinReturn                    -0.0190727
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000501544
+Evaluation/TerminationRate               0
+TotalEnvSteps                       153846
+----------------------------------  ----------------
+2022-08-28 12:47:19 | [trpo_pendulum] epoch #77 | Saving snapshot...
+2022-08-28 12:47:19 | [trpo_pendulum] epoch #77 | Saved
+2022-08-28 12:47:19 | [trpo_pendulum] epoch #77 | Time 74.76 s
+2022-08-28 12:47:19 | [trpo_pendulum] epoch #77 | EpochTime 0.98 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00147092
+Evaluation/AverageReturn                -0.0162531
+Evaluation/Iteration                    77
+Evaluation/MaxReturn                    -0.0158429
+Evaluation/MinReturn                    -0.0166633
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00041016
+Evaluation/TerminationRate               0
+TotalEnvSteps                       155844
+----------------------------------  ---------------
+2022-08-28 12:47:20 | [trpo_pendulum] epoch #78 | Saving snapshot...
+2022-08-28 12:47:20 | [trpo_pendulum] epoch #78 | Saved
+2022-08-28 12:47:20 | [trpo_pendulum] epoch #78 | Time 75.73 s
+2022-08-28 12:47:20 | [trpo_pendulum] epoch #78 | EpochTime 0.97 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00182597
+Evaluation/AverageReturn                -0.0174662
+Evaluation/Iteration                    78
+Evaluation/MaxReturn                    -0.0166644
+Evaluation/MinReturn                    -0.018268
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000801775
+Evaluation/TerminationRate               0
+TotalEnvSteps                       157842
+----------------------------------  ----------------
+2022-08-28 12:47:21 | [trpo_pendulum] epoch #79 | Saving snapshot...
+2022-08-28 12:47:21 | [trpo_pendulum] epoch #79 | Saved
+2022-08-28 12:47:21 | [trpo_pendulum] epoch #79 | Time 76.70 s
+2022-08-28 12:47:21 | [trpo_pendulum] epoch #79 | EpochTime 0.97 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00186223
+Evaluation/AverageReturn                -0.0176396
+Evaluation/Iteration                    79
+Evaluation/MaxReturn                    -0.0176104
+Evaluation/MinReturn                    -0.0176689
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     2.92923e-05
+Evaluation/TerminationRate               0
+TotalEnvSteps                       159840
+----------------------------------  ----------------
+2022-08-28 12:47:22 | [trpo_pendulum] epoch #80 | Saving snapshot...
+2022-08-28 12:47:22 | [trpo_pendulum] epoch #80 | Saved
+2022-08-28 12:47:22 | [trpo_pendulum] epoch #80 | Time 77.68 s
+2022-08-28 12:47:22 | [trpo_pendulum] epoch #80 | EpochTime 0.98 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00199109
+Evaluation/AverageReturn                -0.0177733
+Evaluation/Iteration                    80
+Evaluation/MaxReturn                    -0.0170792
+Evaluation/MinReturn                    -0.0184673
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000694029
+Evaluation/TerminationRate               0
+TotalEnvSteps                       161838
+----------------------------------  ----------------
+2022-08-28 12:47:23 | [trpo_pendulum] epoch #81 | Saving snapshot...
+2022-08-28 12:47:23 | [trpo_pendulum] epoch #81 | Saved
+2022-08-28 12:47:23 | [trpo_pendulum] epoch #81 | Time 78.64 s
+2022-08-28 12:47:23 | [trpo_pendulum] epoch #81 | EpochTime 0.96 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00172647
+Evaluation/AverageReturn                -0.0164748
+Evaluation/Iteration                    81
+Evaluation/MaxReturn                    -0.0155602
+Evaluation/MinReturn                    -0.0173894
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000914594
+Evaluation/TerminationRate               0
+TotalEnvSteps                       163836
+----------------------------------  ----------------
+2022-08-28 12:47:24 | [trpo_pendulum] epoch #82 | Saving snapshot...
+2022-08-28 12:47:24 | [trpo_pendulum] epoch #82 | Saved
+2022-08-28 12:47:24 | [trpo_pendulum] epoch #82 | Time 79.68 s
+2022-08-28 12:47:24 | [trpo_pendulum] epoch #82 | EpochTime 1.04 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00139849
+Evaluation/AverageReturn                -0.0152485
+Evaluation/Iteration                    82
+Evaluation/MaxReturn                    -0.0151442
+Evaluation/MinReturn                    -0.0153527
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00010427
+Evaluation/TerminationRate               0
+TotalEnvSteps                       165834
+----------------------------------  ---------------
+2022-08-28 12:47:25 | [trpo_pendulum] epoch #83 | Saving snapshot...
+2022-08-28 12:47:25 | [trpo_pendulum] epoch #83 | Saved
+2022-08-28 12:47:25 | [trpo_pendulum] epoch #83 | Time 80.70 s
+2022-08-28 12:47:25 | [trpo_pendulum] epoch #83 | EpochTime 1.02 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00151026
+Evaluation/AverageReturn                -0.0149754
+Evaluation/Iteration                    83
+Evaluation/MaxReturn                    -0.0149084
+Evaluation/MinReturn                    -0.0150424
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     6.70329e-05
+Evaluation/TerminationRate               0
+TotalEnvSteps                       167832
+----------------------------------  ----------------
+2022-08-28 12:47:26 | [trpo_pendulum] epoch #84 | Saving snapshot...
+2022-08-28 12:47:26 | [trpo_pendulum] epoch #84 | Saved
+2022-08-28 12:47:26 | [trpo_pendulum] epoch #84 | Time 81.62 s
+2022-08-28 12:47:26 | [trpo_pendulum] epoch #84 | EpochTime 0.92 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00145453
+Evaluation/AverageReturn                -0.0140966
+Evaluation/Iteration                    84
+Evaluation/MaxReturn                    -0.0140386
+Evaluation/MinReturn                    -0.0141547
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     5.80619e-05
+Evaluation/TerminationRate               0
+TotalEnvSteps                       169830
+----------------------------------  ----------------
+2022-08-28 12:47:27 | [trpo_pendulum] epoch #85 | Saving snapshot...
+2022-08-28 12:47:27 | [trpo_pendulum] epoch #85 | Saved
+2022-08-28 12:47:27 | [trpo_pendulum] epoch #85 | Time 82.55 s
+2022-08-28 12:47:27 | [trpo_pendulum] epoch #85 | EpochTime 0.93 s
+----------------------------------  ---------------
+Evaluation/AverageDiscountedReturn      -0.00137831
+Evaluation/AverageReturn                -0.0136978
+Evaluation/Iteration                    85
+Evaluation/MaxReturn                    -0.0133187
+Evaluation/MinReturn                    -0.014077
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00037919
+Evaluation/TerminationRate               0
+TotalEnvSteps                       171828
+----------------------------------  ---------------
+2022-08-28 12:47:28 | [trpo_pendulum] epoch #86 | Saving snapshot...
+2022-08-28 12:47:28 | [trpo_pendulum] epoch #86 | Saved
+2022-08-28 12:47:28 | [trpo_pendulum] epoch #86 | Time 83.57 s
+2022-08-28 12:47:28 | [trpo_pendulum] epoch #86 | EpochTime 1.02 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00165101
+Evaluation/AverageReturn                -0.0138153
+Evaluation/Iteration                    86
+Evaluation/MaxReturn                    -0.0134523
+Evaluation/MinReturn                    -0.0141783
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000362978
+Evaluation/TerminationRate               0
+TotalEnvSteps                       173826
+----------------------------------  ----------------
+2022-08-28 12:47:29 | [trpo_pendulum] epoch #87 | Saving snapshot...
+2022-08-28 12:47:29 | [trpo_pendulum] epoch #87 | Saved
+2022-08-28 12:47:29 | [trpo_pendulum] epoch #87 | Time 84.50 s
+2022-08-28 12:47:29 | [trpo_pendulum] epoch #87 | EpochTime 0.93 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00136683
+Evaluation/AverageReturn                -0.0123186
+Evaluation/Iteration                    87
+Evaluation/MaxReturn                    -0.011834
+Evaluation/MinReturn                    -0.0128032
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000484607
+Evaluation/TerminationRate               0
+TotalEnvSteps                       175824
+----------------------------------  ----------------
+2022-08-28 12:47:30 | [trpo_pendulum] epoch #88 | Saving snapshot...
+2022-08-28 12:47:30 | [trpo_pendulum] epoch #88 | Saved
+2022-08-28 12:47:30 | [trpo_pendulum] epoch #88 | Time 85.44 s
+2022-08-28 12:47:30 | [trpo_pendulum] epoch #88 | EpochTime 0.93 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00136313
+Evaluation/AverageReturn                -0.0124005
+Evaluation/Iteration                    88
+Evaluation/MaxReturn                    -0.0122378
+Evaluation/MinReturn                    -0.0125632
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000162699
+Evaluation/TerminationRate               0
+TotalEnvSteps                       177822
+----------------------------------  ----------------
+2022-08-28 12:47:31 | [trpo_pendulum] epoch #89 | Saving snapshot...
+2022-08-28 12:47:31 | [trpo_pendulum] epoch #89 | Saved
+2022-08-28 12:47:31 | [trpo_pendulum] epoch #89 | Time 86.42 s
+2022-08-28 12:47:31 | [trpo_pendulum] epoch #89 | EpochTime 0.98 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00105728
+Evaluation/AverageReturn                -0.0107997
+Evaluation/Iteration                    89
+Evaluation/MaxReturn                    -0.0105339
+Evaluation/MinReturn                    -0.0110656
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000265858
+Evaluation/TerminationRate               0
+TotalEnvSteps                       179820
+----------------------------------  ----------------
+2022-08-28 12:47:31 | [trpo_pendulum] epoch #90 | Saving snapshot...
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #90 | Saved
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #90 | Time 87.36 s
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #90 | EpochTime 0.94 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00107684
+Evaluation/AverageReturn                -0.0111197
+Evaluation/Iteration                    90
+Evaluation/MaxReturn                    -0.0103654
+Evaluation/MinReturn                    -0.011874
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000754306
+Evaluation/TerminationRate               0
+TotalEnvSteps                       181818
+----------------------------------  ----------------
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #91 | Saving snapshot...
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #91 | Saved
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #91 | Time 88.30 s
+2022-08-28 12:47:32 | [trpo_pendulum] epoch #91 | EpochTime 0.94 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000946913
+Evaluation/AverageReturn                -0.00999757
+Evaluation/Iteration                    91
+Evaluation/MaxReturn                    -0.00980664
+Evaluation/MinReturn                    -0.0101885
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00019093
+Evaluation/TerminationRate               0
+TotalEnvSteps                       183816
+----------------------------------  ----------------
+2022-08-28 12:47:33 | [trpo_pendulum] epoch #92 | Saving snapshot...
+2022-08-28 12:47:33 | [trpo_pendulum] epoch #92 | Saved
+2022-08-28 12:47:33 | [trpo_pendulum] epoch #92 | Time 89.28 s
+2022-08-28 12:47:33 | [trpo_pendulum] epoch #92 | EpochTime 0.98 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.00119898
+Evaluation/AverageReturn                -0.0108531
+Evaluation/Iteration                    92
+Evaluation/MaxReturn                    -0.010459
+Evaluation/MinReturn                    -0.0112472
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000394123
+Evaluation/TerminationRate               0
+TotalEnvSteps                       185814
+----------------------------------  ----------------
+2022-08-28 12:47:34 | [trpo_pendulum] epoch #93 | Saving snapshot...
+2022-08-28 12:47:34 | [trpo_pendulum] epoch #93 | Saved
+2022-08-28 12:47:34 | [trpo_pendulum] epoch #93 | Time 90.18 s
+2022-08-28 12:47:34 | [trpo_pendulum] epoch #93 | EpochTime 0.90 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000953778
+Evaluation/AverageReturn                -0.0100939
+Evaluation/Iteration                    93
+Evaluation/MaxReturn                    -0.00927343
+Evaluation/MinReturn                    -0.0109144
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000820504
+Evaluation/TerminationRate               0
+TotalEnvSteps                       187812
+----------------------------------  ----------------
+2022-08-28 12:47:35 | [trpo_pendulum] epoch #94 | Saving snapshot...
+2022-08-28 12:47:35 | [trpo_pendulum] epoch #94 | Saved
+2022-08-28 12:47:35 | [trpo_pendulum] epoch #94 | Time 91.12 s
+2022-08-28 12:47:35 | [trpo_pendulum] epoch #94 | EpochTime 0.92 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000957176
+Evaluation/AverageReturn                -0.0100189
+Evaluation/Iteration                    94
+Evaluation/MaxReturn                    -0.00978096
+Evaluation/MinReturn                    -0.0102569
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000237959
+Evaluation/TerminationRate               0
+TotalEnvSteps                       189810
+----------------------------------  ----------------
+2022-08-28 12:47:36 | [trpo_pendulum] epoch #95 | Saving snapshot...
+2022-08-28 12:47:36 | [trpo_pendulum] epoch #95 | Saved
+2022-08-28 12:47:36 | [trpo_pendulum] epoch #95 | Time 92.05 s
+2022-08-28 12:47:36 | [trpo_pendulum] epoch #95 | EpochTime 0.93 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000926075
+Evaluation/AverageReturn                -0.00898476
+Evaluation/Iteration                    95
+Evaluation/MaxReturn                    -0.00893804
+Evaluation/MinReturn                    -0.00903149
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     4.67241e-05
+Evaluation/TerminationRate               0
+TotalEnvSteps                       191808
+----------------------------------  ----------------
+2022-08-28 12:47:37 | [trpo_pendulum] epoch #96 | Saving snapshot...
+2022-08-28 12:47:37 | [trpo_pendulum] epoch #96 | Saved
+2022-08-28 12:47:37 | [trpo_pendulum] epoch #96 | Time 93.02 s
+2022-08-28 12:47:37 | [trpo_pendulum] epoch #96 | EpochTime 0.97 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000961293
+Evaluation/AverageReturn                -0.00984993
+Evaluation/Iteration                    96
+Evaluation/MaxReturn                    -0.00921612
+Evaluation/MinReturn                    -0.0104837
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.000633807
+Evaluation/TerminationRate               0
+TotalEnvSteps                       193806
+----------------------------------  ----------------
+2022-08-28 12:47:38 | [trpo_pendulum] epoch #97 | Saving snapshot...
+2022-08-28 12:47:38 | [trpo_pendulum] epoch #97 | Saved
+2022-08-28 12:47:38 | [trpo_pendulum] epoch #97 | Time 93.93 s
+2022-08-28 12:47:38 | [trpo_pendulum] epoch #97 | EpochTime 0.91 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000903664
+Evaluation/AverageReturn                -0.00865677
+Evaluation/Iteration                    97
+Evaluation/MaxReturn                    -0.00864077
+Evaluation/MinReturn                    -0.00867277
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     1.5998e-05
+Evaluation/TerminationRate               0
+TotalEnvSteps                       195804
+----------------------------------  ----------------
+2022-08-28 12:47:39 | [trpo_pendulum] epoch #98 | Saving snapshot...
+2022-08-28 12:47:39 | [trpo_pendulum] epoch #98 | Saved
+2022-08-28 12:47:39 | [trpo_pendulum] epoch #98 | Time 94.91 s
+2022-08-28 12:47:39 | [trpo_pendulum] epoch #98 | EpochTime 0.98 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000823258
+Evaluation/AverageReturn                -0.00950301
+Evaluation/Iteration                    98
+Evaluation/MaxReturn                    -0.00933827
+Evaluation/MinReturn                    -0.00966775
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     0.00016474
+Evaluation/TerminationRate               0
+TotalEnvSteps                       197802
+----------------------------------  ----------------
+2022-08-28 12:47:40 | [trpo_pendulum] epoch #99 | Saving snapshot...
+2022-08-28 12:47:40 | [trpo_pendulum] epoch #99 | Saved
+2022-08-28 12:47:40 | [trpo_pendulum] epoch #99 | Time 95.85 s
+2022-08-28 12:47:40 | [trpo_pendulum] epoch #99 | EpochTime 0.94 s
+----------------------------------  ----------------
+Evaluation/AverageDiscountedReturn      -0.000798153
+Evaluation/AverageReturn                -0.00804699
+Evaluation/Iteration                    99
+Evaluation/MaxReturn                    -0.00801483
+Evaluation/MinReturn                    -0.00807914
+Evaluation/NumEpisodes                   2
+Evaluation/StdReturn                     3.21543e-05
+Evaluation/TerminationRate               0
+TotalEnvSteps                       199800
+----------------------------------  ----------------

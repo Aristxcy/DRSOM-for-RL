@@ -99,8 +99,6 @@ class TRPO_DRSOM(RLAlgorithm):
         self._train(obs_flat, actions_flat, rewards_flat, returns_flat,
                     advs_flat, valids, itr)
 
-        print(itr)
-
         self._old_policy_m.load_state_dict(self.policy.state_dict())
 
         undiscounted_returns = log_performance(itr,
@@ -144,7 +142,7 @@ class TRPO_DRSOM(RLAlgorithm):
         
         # old = self._old_policy_m.get_param_value_new()
         
-        now = self.policy.get_param_value_new()
+        # now = self.policy.get_param_value_new()
 
 
         # m_vector = (now - old).detach()

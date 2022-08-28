@@ -81,7 +81,10 @@ class DRSOMOptimizer(Optimizer):
                 if p.grad is not None:
                     params.append(p)
                     grads.append(p.grad.reshape(-1))
-        flat_loss_grads = torch.cat(grads)
+        g = torch.cat(grads)
+        print('g is:')
+        print(g)
+        print('--------------------------------------------')
 
         f_Ax = _build_hessian_vector_product(f_constraint, params,
                                              self._hvp_reg_coeff)
@@ -124,26 +127,32 @@ class DRSOMOptimizer(Optimizer):
         #
         #     return (flat_grad_kl_1 - flat_grad_kl) / epsilon
 
-        g = flat_loss_grads.clone().detach()
-        print(g)
-
         m_vector = f_Ax(g)
         m_tmp = m_vector.clone().detach()
+        print('Fg is: ')
         print(m_tmp)
+        print('-------------------------------')
 
         m = f_Ax(m_tmp)
         m_clone = m.clone().detach()
+        print('FFg is:')
         print(m_clone)
+        print('------------------------------')
 
         g_cube = f_Ax(m_clone)
         g_cube = g_cube.clone().detach()
+        print('FFFg is: ')
         print(g_cube)
+        print('-----------------------------')
 
         # G = torch.tensor([[torch.dot(g, m_tmp), torch.dot(g, m_clone)], [torch.dot(m_tmp, m_tmp), torch.dot(m_tmp, m_clone)]], requires_grad=False)
         # c = torch.tensor([torch.dot(g, g), torch.dot(g, m_tmp)], requires_grad=False)
 
+        # four directions
         c = torch.tensor([torch.dot(g, g), torch.dot(g, m_tmp), torch.dot(g, m_clone)], requires_grad=False)
+        print('c is')
         print(c)
+        print('----------------------------------------------------')
         g_ = torch.unsqueeze(g, dim=0)
         g1_ = torch.unsqueeze(m_tmp, dim=0)
         g2_ = torch.unsqueeze(m_clone, dim=0)
@@ -152,30 +161,38 @@ class DRSOMOptimizer(Optimizer):
         right = torch.cat((g1_.t(), g2_.t(), g3_.t()), axis=1)
         G = torch.matmul(left, right)
 
-
+        G = G.clone().detach()
 
         eig, _ = torch.eig(G)
+        print('eig of G is: ')
         print(eig)
         print('----------------------------------------------------')
         rho = eig.min()
-        if rho <= 0:
-            G = G - (rho - 1e-8) * torch.eye(3, 3)
+        if rho < 0:
+            G = G - (rho - 1e-8) * torch.eye(3)
             eig, _ = torch.eig(G)
             print(eig)
-        G = G.clone().detach()
+
         print(G)
 
         inverse = torch.pinverse(G)
+        print('inverse of G is:')
         print(inverse)
+        print('--------------------------------------------------')
 
         x = inverse @ c
+        print('x is: ')
         print(x)
+        print('--------------------------------------------------')
 
         print('xTGx is:')
         print(torch.dot(x, G @ x))
+        print('--------------------------------------------------')
 
         step_size = np.sqrt(2 * radius * (1. / (torch.dot(x, G @ x) + 1e-8)))
+        print('step size is:')
         print(step_size)
+        print('--------------------------------------------------')
 
         if torch.isinf(step_size).sum() or torch.isnan(step_size).sum():
             print('inf or nan stepsize')
@@ -183,7 +200,6 @@ class DRSOMOptimizer(Optimizer):
         alpha = step_size * x
 
         step_dir = alpha[0] * g + alpha[1] * m_tmp + alpha[2] * m_clone
-        print(step_dir)
 
         param_shapes = [p.shape or torch.Size([1]) for p in params]
         step_dir = unflatten_tensors(step_dir, param_shapes)
