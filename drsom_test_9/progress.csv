@@ -1,3 +1,0 @@
-Evaluation/AverageDiscountedReturn,Evaluation/NumEpisodes,Evaluation/StdReturn,Evaluation/Iteration,Evaluation/AverageReturn,Evaluation/TerminationRate,TotalEnvSteps,Evaluation/MaxReturn,Evaluation/MinReturn
--10.35262859096029,2,3.590232901680963,0,-96.09978173220925,0.0,1998,-92.50954883052829,-99.69001463389021
--9.821450259266342,2,6.021865664559989,1,-101.22553199572707,0.0,3996,-95.20366633116707,-107.24739766028705

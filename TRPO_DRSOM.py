@@ -152,9 +152,7 @@ class TRPO_DRSOM(RLAlgorithm):
         #                                                f_constraint=lambda: self._compute_kl_constraint(obs), itr=itr)
 
         
-        
-        
-        self._policy_optimizer.compute_alpha(m=m, f_loss=lambda: self._compute_objective(obs, actions, advs), 
+        self._policy_optimizer.compute_alpha_TRPO_momentum_dr(m=m, f_loss=lambda: self._compute_objective(obs, actions, advs), 
                                              f_constraint=lambda: self._compute_kl_constraint(obs), itr=itr)
         
         

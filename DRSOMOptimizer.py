@@ -101,6 +101,7 @@ class DRSOMOptimizer(Optimizer):
         self._max_backtracks = 15
         self._backtrack_ratio = 0.8
         self._accept_violation = False
+        self._gamma = 1.
 
     def compute_alpha(self, m, f_loss, f_constraint, itr):
         params = []
@@ -341,7 +342,219 @@ class DRSOMOptimizer(Optimizer):
                     cur.data = prev.data
 
 
+    def compute_alpha_TRPO(self, m, f_loss, f_constraint, itr):
+        params = []
+        grads = []
+        # params_values = []
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is not None:
+                    params.append(p)
+                    grads.append(p.grad.reshape(-1))
+                    # params_values.append(p.data.reshape(-1))
+        g = torch.cat(grads)
 
+        f_Ax = _build_hessian_vector_product(f_constraint, params,
+                                             self._hvp_reg_coeff)
+
+        step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
+        step_dir[step_dir.ne(step_dir)] = 0.
+        step_size = np.sqrt(2.0 * self._max_constraint_value *
+                        (1. /
+                            (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
+        if np.isnan(step_size):
+            print("find a nan stepsize!")
+            step_size = 1.
+        descent_step = step_size * step_dir
+
+        # backtracking linesearch
+
+        prev_params = [p.clone() for p in params]
+        ratio_list = self._backtrack_ratio**np.arange(self._max_backtracks)
+        loss_before = f_loss()
+
+        param_shapes = [p.shape or torch.Size([1]) for p in params]
+        descent_step = unflatten_tensors(descent_step, param_shapes)
+        assert len(descent_step) == len(params)
+
+        for ratio in ratio_list:
+            for step, prev_param, param in zip(descent_step, prev_params,
+                                            params):
+                step = ratio * step
+                new_param = prev_param.data - step
+                param.data = new_param.data
+
+            loss = f_loss()
+            constraint_val = f_constraint()
+            if (loss < loss_before
+                    and constraint_val <= self._max_constraint_value):
+                # print('loss before is:')
+                # print(loss_before)
+                # print('loss now is:')
+                # print(loss)
+                # print('----------------------------')
+                break
+
+        if ((torch.isnan(loss) or torch.isnan(constraint_val)
+            or loss >= loss_before
+            or constraint_val >= self._max_constraint_value)
+                and not self._accept_violation):
+            logger.log('Line search condition violated. Rejecting the step!')
+            if torch.isnan(loss):
+                logger.log('Violated because loss is NaN')
+            if torch.isnan(constraint_val):
+                logger.log('Violated because constraint is NaN')
+            if loss >= loss_before:
+                logger.log('Violated because loss not improving')
+            if constraint_val >= self._max_constraint_value:
+                logger.log('Violated because constraint is violated')
+            for prev, cur in zip(prev_params, params):
+                cur.data = prev.data
+
+    def compute_alpha_TRPO_momentum(self, m, f_loss, f_constraint, itr):
+        params = []
+        grads = []
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is not None:
+                    params.append(p)
+                    grads.append(p.grad.reshape(-1))
+        g = torch.cat(grads)
+
+        f_Ax = _build_hessian_vector_product(f_constraint, params,
+                                             self._hvp_reg_coeff)
+
+        step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
+        step_dir[step_dir.ne(step_dir)] = 0.
+
+
+        gamma = 1.
+        descent_step = 0.01 * gamma * step_dir + 0.01 * gamma * m
+
+        # if (itr+1) % 100 == 0:
+        #     gamma = 0.98 * gamma
+
+
+        prev_params = [p.clone() for p in params]
+        param_shapes = [p.shape or torch.Size([1]) for p in params]
+        descent_step = unflatten_tensors(descent_step, param_shapes)
+        assert len(descent_step) == len(params)
+
+
+        for step, prev_param, param in zip(descent_step, prev_params,
+                                        params):
+            new_param = prev_param.data - step
+            param.data = new_param.data
+
+    def compute_alpha_TRPO_momentum_dr(self, m, f_loss, f_constraint, itr):
+        params = []
+        grads = []
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is not None:
+                    params.append(p)
+                    grads.append(p.grad.reshape(-1))
+        g = torch.cat(grads)
+        print('g norm is:')
+        print(torch.norm(g))
+        print('-------------------')
+
+        f_Ax = _build_hessian_vector_product(f_constraint, params,
+                                             self._hvp_reg_coeff)
+
+        step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
+        step_dir[step_dir.ne(step_dir)] = 0.
+        # step_dir = step_dir / torch.norm(step_dir)
+        
+        step_size = np.sqrt(2.0 * self._max_constraint_value *
+                        (1. /
+                            (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
+
+        if np.isnan(step_size):
+            print("find a nan stepsize!")
+            step_size = 1.
+
+        NPG = step_dir * step_size
+        
+        with torch.no_grad():
+            tmp = torch.zeros_like(m)
+            if torch.equal(tmp, m):
+                per = 1e-8
+                m = m + per * torch.ones_like(m)
+        m = m / torch.norm(m)
+
+        h_Ax = _build_hessian_vector_product(f_loss, params,
+                                             self._hvp_reg_coeff)
+        
+        c = torch.tensor([torch.dot(g, NPG), torch.dot(g, m)], requires_grad=False)
+
+        hm = h_Ax(m)
+        Fm = f_Ax(m)
+        g01 = torch.dot(NPG, hm)
+        G = torch.tensor([[torch.dot(NPG, h_Ax(NPG)), g01], [g01, torch.dot(m, hm)]], requires_grad=False)
+        print('G is:')
+        print(G)
+        print('-------------------')
+
+        inverse = torch.pinverse(G)
+
+        alpha = (inverse @ c) * (-1.)
+        # alpha = self._gamma * 0.5 * alpha / torch.norm(alpha)
+
+        # G_con = torch.tensor([[torch.dot(g, step_dir), torch.dot(g, m)], [torch.dot(g, m), torch.dot(m, Fm)]], requires_grad=False)
+        # eigen, _ = torch.eig(G_con)
+        # if eigen.min() < 0:
+        #     print('find an indefinite G')
+        #     print(eigen)
+        #     print('--------------------')
+
+        # ref = torch.dot(alpha, G_con @ alpha)
+        # print('ref is:')
+        # print(ref)
+        # print('-------------------')
+
+        # if ref <= 2*0.01:
+        #     normalization = 1
+        # else:
+        #     normalization = np.sqrt( 2*0.01 / (ref) )
+        # alpha = alpha / normalization
+
+        print('alpha is: ')
+        print(alpha)
+        print('-------------------')
+
+        descent_step = alpha[0] * NPG + alpha[1] * m
+
+        print('decent step is:')
+        print(descent_step)
+        print('--------------------')
+
+        loss_before = f_loss()
+        print('loss before is:')
+        print(loss_before)
+        print('--------------------')
+
+        prev_params = [p.clone() for p in params]
+        param_shapes = [p.shape or torch.Size([1]) for p in params]
+        descent_step = unflatten_tensors(descent_step, param_shapes)
+        assert len(descent_step) == len(params)
+
+        for step, prev_param, param in zip(descent_step, prev_params,
+                                        params):
+            new_param = prev_param.data + step
+            param.data = new_param.data
+
+        loss_now = f_loss()
+        print('loss now is:')
+        print(loss_now)
+        print('--------------------')
+
+        # if (loss_now >= loss_before):
+        #     self._gamma = self._gamma * 0.9
+        # else:
+        #     self._gamma = self._gamma * 1.01
+
+    
 
         
 
