@@ -144,10 +144,6 @@ class TRPO_DRSOM(RLAlgorithm):
 
         m = now - old
 
-        print('m is:')
-        print(m)
-        print('----------------------------------')
-
         # alpha, g, Fg, Fm, params = self._policy_optimizer.compute_alpha(m=m,
         #                                                f_constraint=lambda: self._compute_kl_constraint(obs), itr=itr)
 

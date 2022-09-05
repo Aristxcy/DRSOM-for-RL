@@ -427,9 +427,31 @@ class DRSOMOptimizer(Optimizer):
         step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
         step_dir[step_dir.ne(step_dir)] = 0.
 
+        step_size = np.sqrt(2.0 * self._max_constraint_value *
+                        (1. /
+                            (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
+
+        if np.isnan(step_size):
+            print("find a nan stepsize!")
+            step_size = 1.
+
+        print('step size is:')
+        print(step_size)
+        print('------------------------')
+
+        NPG = step_dir * step_size
+
+        print('NPG direction is:')
+        print(NPG)
+        print('------------------------')
+
+        print('m is:')
+        print(m)
+        print('------------------------')
+
 
         gamma = 1.
-        descent_step = 0.01 * gamma * step_dir + 0.01 * gamma * m
+        descent_step = 0.01 * gamma * NPG + 0.01 * gamma * m
 
         # if (itr+1) % 100 == 0:
         #     gamma = 0.98 * gamma
@@ -461,18 +483,19 @@ class DRSOMOptimizer(Optimizer):
 
         f_Ax = _build_hessian_vector_product(f_constraint, params,
                                              self._hvp_reg_coeff)
-
         step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
         step_dir[step_dir.ne(step_dir)] = 0.
         # step_dir = step_dir / torch.norm(step_dir)
         
-        step_size = np.sqrt(2.0 * self._max_constraint_value *
-                        (1. /
-                            (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
+        # step_size = np.sqrt(2.0 * self._max_constraint_value *
+        #                 (1. /
+        #                     (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
 
-        if np.isnan(step_size):
-            print("find a nan stepsize!")
-            step_size = 1.
+        # if np.isnan(step_size):
+        #     print("find a nan stepsize!")
+        #     step_size = 1.
+
+        step_size = 1.
 
         NPG = step_dir * step_size
         
@@ -481,7 +504,7 @@ class DRSOMOptimizer(Optimizer):
             if torch.equal(tmp, m):
                 per = 1e-8
                 m = m + per * torch.ones_like(m)
-        m = m / torch.norm(m)
+        # m = m / torch.norm(m)
 
         h_Ax = _build_hessian_vector_product(f_loss, params,
                                              self._hvp_reg_coeff)
@@ -499,7 +522,7 @@ class DRSOMOptimizer(Optimizer):
         inverse = torch.pinverse(G)
 
         alpha = (inverse @ c) * (-1.)
-        # alpha = self._gamma * 0.5 * alpha / torch.norm(alpha)
+        alpha = 0.5 * self._gamma * alpha / torch.norm(alpha)
 
         # G_con = torch.tensor([[torch.dot(g, step_dir), torch.dot(g, m)], [torch.dot(g, m), torch.dot(m, Fm)]], requires_grad=False)
         # eigen, _ = torch.eig(G_con)
