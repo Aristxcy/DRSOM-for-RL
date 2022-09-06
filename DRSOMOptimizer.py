@@ -103,16 +103,14 @@ class DRSOMOptimizer(Optimizer):
         self._accept_violation = False
         self._gamma = 1.
 
-    def compute_alpha(self, m, f_loss, f_constraint, itr):
+    def basic_drsom(self, m, f_loss, f_constraint, itr):
         params = []
         grads = []
-        # params_values = []
         for group in self.param_groups:
             for p in group['params']:
                 if p.grad is not None:
                     params.append(p)
                     grads.append(p.grad.reshape(-1))
-                    # params_values.append(p.data.reshape(-1))
         g = torch.cat(grads)
 
         # flat_params_values = torch.cat(params_values)
@@ -132,216 +130,137 @@ class DRSOMOptimizer(Optimizer):
         f_Ax = _build_hessian_vector_product(f_constraint, params,
                                              self._hvp_reg_coeff)
 
-        if itr <= -1:
-            # with torch.no_grad():
-            #     tmp = torch.zeros_like(m)
-            #     if torch.equal(tmp, m):
-            #         per = 1e-8
-            #         m = m + per * torch.ones_like(m)
+        if itr > 0:
+            print('m is: ')
+            print(m)
+            print('-------------------------------')
 
-            if itr > 0:
-                Fg = f_Ax(g)
-                Fm = f_Ax(m)
+            print('g is: ')
+            print(g)
+            print('-------------------------------')
 
-                print('g is: ')
-                print(g)
-                print('-------------------------------')
+            print('g norm is:')
+            print(torch.norm(g))
+            print('-------------------------------')
 
-                print('g norm is:')
-                print(torch.norm(g))
-                print('-------------------------------')
+            Fg = f_Ax(g)
+            Fm = f_Ax(m)
+            gg = torch.dot(g, g)
+            gm = torch.dot(g, m)
 
-                print('m is: ')
-                print(m)
-                print('-------------------------------')
+            # for two directions
+            c = torch.tensor([gg, gm], requires_grad=False)
 
-                gg = torch.dot(g, g)
-                gm = torch.dot(g, m)
-                gFg = torch.dot(g, Fg)
-                gFm = torch.dot(g, Fm)
-                FFg = f_Ax(Fg)
-                FFm = f_Ax(Fm)
+            print('c is:')
+            print(c)
+            print('------------------------------')
 
-                # for four directions
-                # c = torch.tensor([gg, gm, gFg, gFm], requires_grad=False)
+            g_ = torch.unsqueeze(g, dim=0)
+            m_ = torch.unsqueeze(m, dim=0)
+            Fg_ = torch.unsqueeze(Fg, dim=0)
+            Fm_ = torch.unsqueeze(Fm, dim=0)
 
-                # for two directions
-                c = torch.tensor([gg, gm], requires_grad=False)
+            # for two directions
+            left = torch.cat((g_, m_), axis=0)
+            right = torch.cat((Fg_.t(), Fm_.t()), axis=1)
 
-                print('c is:')
-                print(c)
-                print('------------------------------')
+            G = torch.matmul(left, right).detach()
+            print('G is:')
+            print(G)
+            print('-----------------------------')
 
-                g_ = torch.unsqueeze(g, dim=0)
-                m_ = torch.unsqueeze(m, dim=0)
-                Fg_ = torch.unsqueeze(Fg, dim=0)
-                Fm_ = torch.unsqueeze(Fm, dim=0)
-                FFg_ = torch.unsqueeze(FFg, dim=0)
-                FFm_ = torch.unsqueeze(FFm, dim=0)
+            eigen, _ = torch.eig(G)
+            var = eigen.min()
+            if var < 0:
+                print('Find an indefinite G')
+                G = G - (var - 1e-8) * torch.eye(2)
+            print('eigen of G is:')
+            print(eigen)
+            print('-----------------------------')
 
-                # for four directions
-                # left = torch.cat((g_, m_, Fg_, Fm_), axis=0)
-                # right = torch.cat((Fg_.t(), Fm_.t(), FFg_.t(), FFm_.t()), axis=1)
+            inverse = torch.pinverse(G)
 
-                # for two directions
-                left = torch.cat((g_, m_), axis=0)
-                right = torch.cat((Fg_.t(), Fm_.t()), axis=1)
+            print('inverse of G is:')
+            print(inverse)
+            print('----------------------------')
 
-                G = torch.matmul(left, right).detach()
-                print('G is:')
-                print(G)
-                print('-----------------------------')
+            x = inverse @ c
+            print("x is:")
+            print(x)
+            print('----------------------------')
 
-                eigen, _ = torch.eig(G)
-                var = eigen.min()
-                if var < 0:
-                    print('Find an indefinite G')
-                    G = G - (var - 1e-8) * torch.eye(2)
-                print('eigen of G is:')
-                print(eigen)
-                print('-----------------------------')
+            print('xTGx is: ')
+            print(torch.dot(x, G @ x))
+            print('----------------------------')
 
-                inverse = torch.pinverse(G)
+            alpha = np.sqrt(2. * self._max_constraint_value * (1. / (torch.dot(x, G @ x) + 1e-8))) * x
 
-                print('inverse of G is:')
-                print(inverse)
-                print('----------------------------')
+            print(1/2 * torch.dot(alpha, G@alpha))
 
-                x = inverse @ c
-                print("x is:")
-                print(x)
-                print('----------------------------')
+            if torch.isnan(alpha).sum():
+                print('find nan step size!')
+                alpha = torch.ones(4)
 
-                print('xTGx is: ')
-                print(torch.dot(x, G @ x))
-                print('----------------------------')
-
-                alpha = np.sqrt(2. * self._max_constraint_value * (1. / (torch.dot(x, G @ x) + 1e-8))) * x
-
-                print(1/2 * torch.dot(alpha, G@alpha))
-
-                if torch.isnan(alpha).sum():
-                    print('find nan step size!')
-                    alpha = torch.ones(4)
-
-                print('alpha is:')
-                print(alpha)
-                print('--------------------------')
-                
-                # return alpha, g, Fg, Fm, params
-
-                steps = alpha[0] * g + alpha[1] * m
-                param_shapes = [p.shape or torch.Size([1]) for p in params]
-                steps = unflatten_tensors(steps, param_shapes)
-                assert len(steps) == len(params)
-                prev_params = [p.clone() for p in params]
-                
-                loss_before = f_loss()
-                print('loss before mean is')
-                print(loss_before)
-                print('---------------------------')
-
-                for step, prev_param, param in zip(steps, prev_params, params):
-                    new_param = prev_param.data - step
-                    param.data = new_param.data
-
-                loss = f_loss()
-                print('after loss is:')
-                print(loss)
-                print('--------------------------')
-
-                constraint_val = f_constraint()
-                print('constraint value is:')
-                print(constraint_val)
-                print('--------------------------')
+            print('alpha is:')
+            print(alpha)
+            print('--------------------------')
             
-            else:
-                Fg = f_Ax(g)
-                alpha = np.sqrt(2.0 * self._max_constraint_value *
-                            (1. /
-                             (torch.dot(g, Fg) + 1e-8)))
-                steps = alpha * g
-                param_shapes = [p.shape or torch.Size([1]) for p in params]
-                steps = unflatten_tensors(steps, param_shapes)
-                assert len(steps) == len(params)
-                prev_params = [p.clone() for p in params]
-                
-                loss_before = f_loss()
-                print('loss before mean is')
-                print(loss_before)
-                print('---------------------------')
+            # return alpha, g, Fg, Fm, params
 
-                for step, prev_param, param in zip(steps, prev_params, params):
-                    new_param = prev_param.data - step
-                    param.data = new_param.data
-
-                loss = f_loss()
-                print('after loss is:')
-                print(loss)
-                print('--------------------------')
-
-                constraint_val = f_constraint()
-                print('constraint value is:')
-                print(constraint_val)
-                print('--------------------------')
-
-        else:
-            
-            step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
-            step_dir[step_dir.ne(step_dir)] = 0.
-            step_size = np.sqrt(2.0 * self._max_constraint_value *
-                            (1. /
-                             (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
-            if np.isnan(step_size):
-                print("find a nan stepsize!")
-                step_size = 1.
-            descent_step = step_size * step_dir
-
-            # backtracking linesearch
-
-            prev_params = [p.clone() for p in params]
-            ratio_list = self._backtrack_ratio**np.arange(self._max_backtracks)
-            loss_before = f_loss()
-
+            steps = alpha[0] * g + alpha[1] * m
             param_shapes = [p.shape or torch.Size([1]) for p in params]
-            descent_step = unflatten_tensors(descent_step, param_shapes)
-            assert len(descent_step) == len(params)
+            steps = unflatten_tensors(steps, param_shapes)
+            assert len(steps) == len(params)
+            prev_params = [p.clone() for p in params]
+            
+            loss_before = f_loss()
+            print('loss before is')
+            print(loss_before)
+            print('---------------------------')
 
-            for ratio in ratio_list:
-                for step, prev_param, param in zip(descent_step, prev_params,
-                                                params):
-                    step = ratio * step
-                    new_param = prev_param.data - step
-                    param.data = new_param.data
+            for step, prev_param, param in zip(steps, prev_params, params):
+                new_param = prev_param.data - step
+                param.data = new_param.data
 
-                loss = f_loss()
-                constraint_val = f_constraint()
-                if (loss < loss_before
-                        and constraint_val <= self._max_constraint_value):
-                    # print('loss before is:')
-                    # print(loss_before)
-                    # print('loss now is:')
-                    # print(loss)
-                    # print('----------------------------')
-                    break
+            loss = f_loss()
+            print('after loss is:')
+            print(loss)
+            print('--------------------------')
 
-            if ((torch.isnan(loss) or torch.isnan(constraint_val)
-                or loss >= loss_before
-                or constraint_val >= self._max_constraint_value)
-                    and not self._accept_violation):
-                logger.log('Line search condition violated. Rejecting the step!')
-                if torch.isnan(loss):
-                    logger.log('Violated because loss is NaN')
-                if torch.isnan(constraint_val):
-                    logger.log('Violated because constraint is NaN')
-                if loss >= loss_before:
-                    logger.log('Violated because loss not improving')
-                if constraint_val >= self._max_constraint_value:
-                    logger.log('Violated because constraint is violated')
-                for prev, cur in zip(prev_params, params):
-                    cur.data = prev.data
+            constraint_val = f_constraint()
+            print('constraint value is:')
+            print(constraint_val)
+            print('--------------------------')
+        else:
+            Fg = f_Ax(g)
+            alpha = np.sqrt(2.0 * self._max_constraint_value *
+                        (1. /
+                            (torch.dot(g, Fg) + 1e-8)))
+            steps = alpha * g
+            param_shapes = [p.shape or torch.Size([1]) for p in params]
+            steps = unflatten_tensors(steps, param_shapes)
+            assert len(steps) == len(params)
+            prev_params = [p.clone() for p in params]
+            
+            loss_before = f_loss()
+            print('loss before is')
+            print(loss_before)
+            print('---------------------------')
 
+            for step, prev_param, param in zip(steps, prev_params, params):
+                new_param = prev_param.data - step
+                param.data = new_param.data
 
+            loss = f_loss()
+            print('after loss is:')
+            print(loss)
+            print('--------------------------')
+
+            constraint_val = f_constraint()
+            print('constraint value is:')
+            print(constraint_val)
+            print('--------------------------')
+            
     def compute_alpha_TRPO(self, m, f_loss, f_constraint, itr):
         params = []
         grads = []
@@ -388,11 +307,6 @@ class DRSOMOptimizer(Optimizer):
             constraint_val = f_constraint()
             if (loss < loss_before
                     and constraint_val <= self._max_constraint_value):
-                # print('loss before is:')
-                # print(loss_before)
-                # print('loss now is:')
-                # print(loss)
-                # print('----------------------------')
                 break
 
         if ((torch.isnan(loss) or torch.isnan(constraint_val)
@@ -411,7 +325,7 @@ class DRSOMOptimizer(Optimizer):
             for prev, cur in zip(prev_params, params):
                 cur.data = prev.data
 
-    def compute_alpha_TRPO_momentum(self, m, f_loss, f_constraint, itr):
+    def compute_alpha_NPG_fixed(self, m, f_loss, f_constraint, itr):
         params = []
         grads = []
         for group in self.param_groups:
@@ -427,48 +341,28 @@ class DRSOMOptimizer(Optimizer):
         step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
         step_dir[step_dir.ne(step_dir)] = 0.
 
-        step_size = np.sqrt(2.0 * self._max_constraint_value *
-                        (1. /
-                            (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
-
-        if np.isnan(step_size):
-            print("find a nan stepsize!")
-            step_size = 1.
-
-        print('step size is:')
-        print(step_size)
-        print('------------------------')
-
-        NPG = step_dir * step_size
-
         print('NPG direction is:')
-        print(NPG)
+        print(step_dir)
         print('------------------------')
 
         print('m is:')
         print(m)
         print('------------------------')
 
-
         gamma = 1.
-        descent_step = 0.01 * gamma * NPG + 0.01 * gamma * m
-
-        # if (itr+1) % 100 == 0:
-        #     gamma = 0.98 * gamma
-
+        descent_step = 0.01 * gamma * step_dir + 0.01 * gamma * m
 
         prev_params = [p.clone() for p in params]
         param_shapes = [p.shape or torch.Size([1]) for p in params]
         descent_step = unflatten_tensors(descent_step, param_shapes)
         assert len(descent_step) == len(params)
 
-
         for step, prev_param, param in zip(descent_step, prev_params,
                                         params):
             new_param = prev_param.data - step
             param.data = new_param.data
 
-    def compute_alpha_TRPO_momentum_dr(self, m, f_loss, f_constraint, itr):
+    def compute_alpha_NPG_opt(self, m, f_loss, f_constraint, itr):
         params = []
         grads = []
         for group in self.param_groups:
@@ -485,26 +379,13 @@ class DRSOMOptimizer(Optimizer):
                                              self._hvp_reg_coeff)
         step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
         step_dir[step_dir.ne(step_dir)] = 0.
-        # step_dir = step_dir / torch.norm(step_dir)
-        
-        # step_size = np.sqrt(2.0 * self._max_constraint_value *
-        #                 (1. /
-        #                     (torch.dot(step_dir, f_Ax(step_dir)) + 1e-8)))
-
-        # if np.isnan(step_size):
-        #     print("find a nan stepsize!")
-        #     step_size = 1.
-
-        step_size = 1.
-
-        NPG = step_dir * step_size
+        NPG = step_dir
         
         with torch.no_grad():
             tmp = torch.zeros_like(m)
             if torch.equal(tmp, m):
                 per = 1e-8
                 m = m + per * torch.ones_like(m)
-        # m = m / torch.norm(m)
 
         h_Ax = _build_hessian_vector_product(f_loss, params,
                                              self._hvp_reg_coeff)
@@ -512,7 +393,6 @@ class DRSOMOptimizer(Optimizer):
         c = torch.tensor([torch.dot(g, NPG), torch.dot(g, m)], requires_grad=False)
 
         hm = h_Ax(m)
-        Fm = f_Ax(m)
         g01 = torch.dot(NPG, hm)
         G = torch.tensor([[torch.dot(NPG, h_Ax(NPG)), g01], [g01, torch.dot(m, hm)]], requires_grad=False)
         print('G is:')
@@ -521,7 +401,7 @@ class DRSOMOptimizer(Optimizer):
 
         inverse = torch.pinverse(G)
 
-        alpha = (inverse @ c) * (-1.)
+        alpha = inverse @ c
         alpha = 0.5 * self._gamma * alpha / torch.norm(alpha)
 
         # G_con = torch.tensor([[torch.dot(g, step_dir), torch.dot(g, m)], [torch.dot(g, m), torch.dot(m, Fm)]], requires_grad=False)
@@ -564,7 +444,7 @@ class DRSOMOptimizer(Optimizer):
 
         for step, prev_param, param in zip(descent_step, prev_params,
                                         params):
-            new_param = prev_param.data + step
+            new_param = prev_param.data - step
             param.data = new_param.data
 
         loss_now = f_loss()
@@ -572,20 +452,56 @@ class DRSOMOptimizer(Optimizer):
         print(loss_now)
         print('--------------------')
 
-        # if (loss_now >= loss_before):
-        #     self._gamma = self._gamma * 0.9
-        # else:
-        #     self._gamma = self._gamma * 1.01
 
-    
 
+    def drsom_linesearch(self, m, f_loss, f_constraint, itr):
+        params = []
+        grads = []
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is not None:
+                    params.append(p)
+                    grads.append(p.grad.reshape(-1))
+        g = torch.cat(grads)
+
+        f_Ax = _build_hessian_vector_product(f_constraint, params,
+                                             self._hvp_reg_coeff)
+        step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
+        step_dir[step_dir.ne(step_dir)] = 0.
+        NPG = step_dir
         
+        with torch.no_grad():
+            tmp = torch.zeros_like(m)
+            if torch.equal(tmp, m):
+                per = 1e-8
+                m = m + per * torch.ones_like(m)
 
-    # for backup
-    # mFm = torch.dot(m, Fm)
-    # mFg = torch.dot(m, Fg)
-    # G = torch.tensor([[gFg, mFg + per], [mFg + per, mFm + per]], requires_grad=False)
-    # print("G is:")
-    # print(G)
-    # coff = 1. / (G[0][0] * G[1][1] - G[0][1] * G[1][0])
-    # inverse = coff * torch.tensor([[G[1][1], (-1) * G[0][1]], [(-1) * G[1][0], G[0][0]]], requires_grad=False)
+        h_Ax = _build_hessian_vector_product(f_loss, params,
+                                             self._hvp_reg_coeff)
+        
+        hm = h_Ax(m)
+        tau = 1.
+        denom = torch.dot(m, hm)
+        num = torch.dot(g, tau * hm)  
+
+
+
+        loss_before = f_loss()
+        print('loss before is:')
+        print(loss_before)
+        print('--------------------')
+
+        prev_params = [p.clone() for p in params]
+        param_shapes = [p.shape or torch.Size([1]) for p in params]
+        descent_step = unflatten_tensors(descent_step, param_shapes)
+        assert len(descent_step) == len(params)
+
+        for step, prev_param, param in zip(descent_step, prev_params,
+                                        params):
+            new_param = prev_param.data - step
+            param.data = new_param.data
+
+        loss_now = f_loss()
+        print('loss now is:')
+        print(loss_now)
+        print('--------------------')
