@@ -442,61 +442,66 @@ class DRSOMOptimizer(Optimizer):
                     grads.append(p.grad.reshape(-1))
         g = torch.cat(grads)
 
-        with torch.no_grad():
-            tmp = torch.zeros_like(m)
-            if torch.equal(tmp, m):
-                per = 1e-8
-                m = m + per * torch.ones_like(m)
+        f_Ax = _build_hessian_vector_product(f_constraint, params,
+                                                self._hvp_reg_coeff) 
+        if itr == 0:
+            Fg = f_Ax(g)
+            alpha = np.sqrt(2.0 * self._max_constraint_value *
+                        (1. /
+                            (torch.dot(g, Fg) + 1e-8)))
+            steps = alpha * g
+            param_shapes = [p.shape or torch.Size([1]) for p in params]
+            steps = unflatten_tensors(steps, param_shapes)
+            assert len(steps) == len(params)
+            prev_params = [p.clone() for p in params]
 
-        h_Ax = _build_hessian_vector_product(f_loss, params,
-                                             self._hvp_reg_coeff)        
-        hm = h_Ax(m)
-
-        tau_list = self._backtrack_ratio**np.arange(self._max_backtracks)
-
-        prev_params = [p.clone() for p in params]
-        param_shapes = [p.shape or torch.Size([1]) for p in params]
-
-        for tau in tau_list:
-            denom = torch.dot(m, hm)
-            num_1 = torch.dot(g, m)
-            num_2 = torch.dot(g, tau * hm)  
-            num = num_1 + num_2
-            coff_m = (-1.) * num / denom
-
-            if coff_m > 10:
-                coff_m = 10
-            if coff_m < -10:
-                coff_m = -10
-
-            descent_step = g + coff_m * m
-
-            loss_before = f_loss()
-            print('loss before is:')
-            print(loss_before)
-            print('--------------------')
-
-            descent_step = unflatten_tensors(descent_step, param_shapes)
-            assert len(descent_step) == len(params)
-
-            for step, prev_param, param in zip(descent_step, prev_params,
-                                            params):
-                new_param = prev_param.data + step
+            for step, prev_param, param in zip(steps, prev_params, params):
+                new_param = prev_param.data - step
                 param.data = new_param.data
+        else:
+            h_Ax = _build_hessian_vector_product(f_loss, params,
+                                                self._hvp_reg_coeff)        
+            hm = h_Ax(m)
 
-            loss_now = f_loss()
-            print('loss now is:')
-            print(loss_now)
+            tau_list = self._backtrack_ratio**np.arange(self._max_backtracks)
+
+            prev_params = [p.clone() for p in params]
+            param_shapes = [p.shape or torch.Size([1]) for p in params]
+
+            for tau in tau_list:
+                denom = torch.dot(m, hm)
+                num_1 = torch.dot(g, m)
+                num_2 = torch.dot(g, tau * hm)  
+                num = -num_1 + num_2
+                coff_m = (-1.) * num / denom
+
+                descent_step = -tau * g + coff_m * m
+
+                loss_before = f_loss()
+                print('loss before is:')
+                print(loss_before)
+                print('--------------------')
+
+                descent_step = unflatten_tensors(descent_step, param_shapes)
+                assert len(descent_step) == len(params)
+
+                for step, prev_param, param in zip(descent_step, prev_params,
+                                                params):
+                    new_param = prev_param.data + step
+                    param.data = new_param.data
+
+                loss_now = f_loss()
+                print('loss now is:')
+                print(loss_now)
+                print('--------------------')
+
+                if loss_now < loss_before:
+                    break
+
+            print('coff_m is:')
+            print(coff_m)
             print('--------------------')
 
-            if loss_now < loss_before:
-                break
-
-        print('coff_m is:')
-        print(coff_m)
-        print('--------------------')
-
-        if loss_now >= loss_before:
-            for prev, cur in zip(prev_params, params):
-                cur.data = prev.data
-
+            if loss_now >= loss_before:
+                for prev, cur in zip(prev_params, params):
+                    cur.data = prev.data
