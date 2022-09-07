@@ -1,8 +1,8 @@
 from garage import log_performance
 from garage.np import discount_cumsum
 from garage.np import unflatten_tensors
-from garage.torch.optimizers import OptimizerWrapper
 from garage.torch import filter_valids, compute_advantages
+from policies.optimizer_wrapper import OptimizerWrapper
 import torch
 import torch.nn.functional as F
 import numpy as np
@@ -148,7 +148,7 @@ class TRPO_DRSOM(RLAlgorithm):
         #                                                f_constraint=lambda: self._compute_kl_constraint(obs), itr=itr)
 
         
-        self._policy_optimizer.compute_alpha_TRPO_momentum_dr(m=m, f_loss=lambda: self._compute_objective(obs, actions, advs), 
+        self._policy_optimizer.compute_alpha_NPG_fixed(m=m, f_loss=lambda: self._compute_objective(obs, actions, advs), 
                                              f_constraint=lambda: self._compute_kl_constraint(obs), itr=itr)
         
         

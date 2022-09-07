@@ -264,13 +264,11 @@ class DRSOMOptimizer(Optimizer):
     def compute_alpha_TRPO(self, m, f_loss, f_constraint, itr):
         params = []
         grads = []
-        # params_values = []
         for group in self.param_groups:
             for p in group['params']:
                 if p.grad is not None:
                     params.append(p)
                     grads.append(p.grad.reshape(-1))
-                    # params_values.append(p.data.reshape(-1))
         g = torch.cat(grads)
 
         f_Ax = _build_hessian_vector_product(f_constraint, params,
@@ -350,7 +348,7 @@ class DRSOMOptimizer(Optimizer):
         print('------------------------')
 
         gamma = 1.
-        descent_step = 0.01 * gamma * step_dir + 0.01 * gamma * m
+        descent_step = -0.01 * gamma * step_dir + 0.01 * gamma * m
 
         prev_params = [p.clone() for p in params]
         param_shapes = [p.shape or torch.Size([1]) for p in params]
@@ -359,7 +357,7 @@ class DRSOMOptimizer(Optimizer):
 
         for step, prev_param, param in zip(descent_step, prev_params,
                                         params):
-            new_param = prev_param.data - step
+            new_param = prev_param.data + step
             param.data = new_param.data
 
     def compute_alpha_NPG_opt(self, m, f_loss, f_constraint, itr):
@@ -401,26 +399,8 @@ class DRSOMOptimizer(Optimizer):
 
         inverse = torch.pinverse(G)
 
-        alpha = inverse @ c
+        alpha = (inverse @ c) * (-0.1)
         alpha = 0.5 * self._gamma * alpha / torch.norm(alpha)
-
-        # G_con = torch.tensor([[torch.dot(g, step_dir), torch.dot(g, m)], [torch.dot(g, m), torch.dot(m, Fm)]], requires_grad=False)
-        # eigen, _ = torch.eig(G_con)
-        # if eigen.min() < 0:
-        #     print('find an indefinite G')
-        #     print(eigen)
-        #     print('--------------------')
-
-        # ref = torch.dot(alpha, G_con @ alpha)
-        # print('ref is:')
-        # print(ref)
-        # print('-------------------')
-
-        # if ref <= 2*0.01:
-        #     normalization = 1
-        # else:
-        #     normalization = np.sqrt( 2*0.01 / (ref) )
-        # alpha = alpha / normalization
 
         print('alpha is: ')
         print(alpha)
@@ -444,7 +424,7 @@ class DRSOMOptimizer(Optimizer):
 
         for step, prev_param, param in zip(descent_step, prev_params,
                                         params):
-            new_param = prev_param.data - step
+            new_param = prev_param.data + step
             param.data = new_param.data
 
         loss_now = f_loss()
@@ -452,9 +432,7 @@ class DRSOMOptimizer(Optimizer):
         print(loss_now)
         print('--------------------')
 
-
-
-    def drsom_linesearch(self, m, f_loss, f_constraint, itr):
+    def drsom_linesearch_g(self, m, f_loss, f_constraint, itr):
         params = []
         grads = []
         for group in self.param_groups:
@@ -464,12 +442,6 @@ class DRSOMOptimizer(Optimizer):
                     grads.append(p.grad.reshape(-1))
         g = torch.cat(grads)
 
-        f_Ax = _build_hessian_vector_product(f_constraint, params,
-                                             self._hvp_reg_coeff)
-        step_dir = _conjugate_gradient(f_Ax, g, self._cg_iters)
-        step_dir[step_dir.ne(step_dir)] = 0.
-        NPG = step_dir
-        
         with torch.no_grad():
             tmp = torch.zeros_like(m)
             if torch.equal(tmp, m):
@@ -477,31 +449,54 @@ class DRSOMOptimizer(Optimizer):
                 m = m + per * torch.ones_like(m)
 
         h_Ax = _build_hessian_vector_product(f_loss, params,
-                                             self._hvp_reg_coeff)
-        
+                                             self._hvp_reg_coeff)        
         hm = h_Ax(m)
-        tau = 1.
-        denom = torch.dot(m, hm)
-        num = torch.dot(g, tau * hm)  
 
-
-
-        loss_before = f_loss()
-        print('loss before is:')
-        print(loss_before)
-        print('--------------------')
+        tau_list = self._backtrack_ratio**np.arange(self._max_backtracks)
 
         prev_params = [p.clone() for p in params]
         param_shapes = [p.shape or torch.Size([1]) for p in params]
-        descent_step = unflatten_tensors(descent_step, param_shapes)
-        assert len(descent_step) == len(params)
 
-        for step, prev_param, param in zip(descent_step, prev_params,
-                                        params):
-            new_param = prev_param.data - step
-            param.data = new_param.data
+        for tau in tau_list:
+            denom = torch.dot(m, hm)
+            num_1 = torch.dot(g, m)
+            num_2 = torch.dot(g, tau * hm)  
+            num = num_1 + num_2
+            coff_m = (-1.) * num / denom
 
-        loss_now = f_loss()
-        print('loss now is:')
-        print(loss_now)
+            if coff_m > 10:
+                coff_m = 10
+            if coff_m < -10:
+                coff_m = -10
+
+            descent_step = g + coff_m * m
+
+            loss_before = f_loss()
+            print('loss before is:')
+            print(loss_before)
+            print('--------------------')
+
+            descent_step = unflatten_tensors(descent_step, param_shapes)
+            assert len(descent_step) == len(params)
+
+            for step, prev_param, param in zip(descent_step, prev_params,
+                                            params):
+                new_param = prev_param.data + step
+                param.data = new_param.data
+
+            loss_now = f_loss()
+            print('loss now is:')
+            print(loss_now)
+            print('--------------------')
+
+            if loss_now < loss_before:
+                break
+
+        print('coff_m is:')
+        print(coff_m)
         print('--------------------')
+
+        if loss_now >= loss_before:
+            for prev, cur in zip(prev_params, params):
+                cur.data = prev.data
+
